@@ -1,0 +1,2785 @@
+[
+  {
+    "id": "AFG",
+    "name": "Afghanistan",
+    "official": "Islamic Republic of Afghanistan",
+    "aliases": [
+      "Afġānistān"
+    ],
+    "capitals": [
+      "Kabul"
+    ],
+    "region": "Asia",
+    "flag": "🇦🇫"
+  },
+  {
+    "id": "ALB",
+    "name": "Albania",
+    "official": "Republic of Albania",
+    "aliases": [
+      "Shqipëri",
+      "Shqipëria",
+      "Shqipnia"
+    ],
+    "capitals": [
+      "Tirana"
+    ],
+    "region": "Europe",
+    "flag": "🇦🇱"
+  },
+  {
+    "id": "DZA",
+    "name": "Algeria",
+    "official": "People's Democratic Republic of Algeria",
+    "aliases": [
+      "Dzayer",
+      "Algérie"
+    ],
+    "capitals": [
+      "Algiers"
+    ],
+    "region": "Africa",
+    "flag": "🇩🇿"
+  },
+  {
+    "id": "AND",
+    "name": "Andorra",
+    "official": "Principality of Andorra",
+    "aliases": [
+      "Principality of Andorra",
+      "Principat d'Andorra"
+    ],
+    "capitals": [
+      "Andorra la Vella"
+    ],
+    "region": "Europe",
+    "flag": "🇦🇩"
+  },
+  {
+    "id": "AGO",
+    "name": "Angola",
+    "official": "Republic of Angola",
+    "aliases": [
+      "República de Angola",
+      "ʁɛpublika de an'ɡɔla"
+    ],
+    "capitals": [
+      "Luanda"
+    ],
+    "region": "Africa",
+    "flag": "🇦🇴"
+  },
+  {
+    "id": "ATG",
+    "name": "Antigua and Barbuda",
+    "official": "Antigua and Barbuda",
+    "aliases": [],
+    "capitals": [
+      "Saint John's"
+    ],
+    "region": "Americas",
+    "flag": "🇦🇬"
+  },
+  {
+    "id": "ARG",
+    "name": "Argentina",
+    "official": "Argentine Republic",
+    "aliases": [
+      "Argentine Republic",
+      "República Argentina"
+    ],
+    "capitals": [
+      "Buenos Aires"
+    ],
+    "region": "Americas",
+    "flag": "🇦🇷"
+  },
+  {
+    "id": "ARM",
+    "name": "Armenia",
+    "official": "Republic of Armenia",
+    "aliases": [
+      "Hayastan",
+      "Republic of Armenia",
+      "Հայաստանի Հանրապետություն"
+    ],
+    "capitals": [
+      "Yerevan"
+    ],
+    "region": "Asia",
+    "flag": "🇦🇲"
+  },
+  {
+    "id": "AUS",
+    "name": "Australia",
+    "official": "Commonwealth of Australia",
+    "aliases": [],
+    "capitals": [
+      "Canberra"
+    ],
+    "region": "Oceania",
+    "flag": "🇦🇺"
+  },
+  {
+    "id": "AUT",
+    "name": "Austria",
+    "official": "Republic of Austria",
+    "aliases": [
+      "Osterreich",
+      "Oesterreich"
+    ],
+    "capitals": [
+      "Vienna"
+    ],
+    "region": "Europe",
+    "flag": "🇦🇹"
+  },
+  {
+    "id": "AZE",
+    "name": "Azerbaijan",
+    "official": "Republic of Azerbaijan",
+    "aliases": [
+      "Republic of Azerbaijan",
+      "Azərbaycan Respublikası"
+    ],
+    "capitals": [
+      "Baku"
+    ],
+    "region": "Asia",
+    "flag": "🇦🇿"
+  },
+  {
+    "id": "BHS",
+    "name": "Bahamas",
+    "official": "Commonwealth of the Bahamas",
+    "aliases": [
+      "Commonwealth of the Bahamas"
+    ],
+    "capitals": [
+      "Nassau"
+    ],
+    "region": "Americas",
+    "flag": "🇧🇸"
+  },
+  {
+    "id": "BHR",
+    "name": "Bahrain",
+    "official": "Kingdom of Bahrain",
+    "aliases": [
+      "Kingdom of Bahrain",
+      "Mamlakat al-Baḥrayn"
+    ],
+    "capitals": [
+      "Manama"
+    ],
+    "region": "Asia",
+    "flag": "🇧🇭"
+  },
+  {
+    "id": "BGD",
+    "name": "Bangladesh",
+    "official": "People's Republic of Bangladesh",
+    "aliases": [
+      "People's Republic of Bangladesh",
+      "Gônôprôjatôntri Bangladesh"
+    ],
+    "capitals": [
+      "Dhaka"
+    ],
+    "region": "Asia",
+    "flag": "🇧🇩"
+  },
+  {
+    "id": "BRB",
+    "name": "Barbados",
+    "official": "Barbados",
+    "aliases": [],
+    "capitals": [
+      "Bridgetown"
+    ],
+    "region": "Americas",
+    "flag": "🇧🇧"
+  },
+  {
+    "id": "BLR",
+    "name": "Belarus",
+    "official": "Republic of Belarus",
+    "aliases": [
+      "Bielaruś",
+      "Republic of Belarus",
+      "Белоруссия",
+      "Республика Белоруссия"
+    ],
+    "capitals": [
+      "Minsk"
+    ],
+    "region": "Europe",
+    "flag": "🇧🇾"
+  },
+  {
+    "id": "BEL",
+    "name": "Belgium",
+    "official": "Kingdom of Belgium",
+    "aliases": [
+      "België",
+      "Belgie",
+      "Belgien",
+      "Belgique",
+      "Kingdom of Belgium",
+      "Koninkrijk België",
+      "Royaume de Belgique",
+      "Königreich Belgien"
+    ],
+    "capitals": [
+      "Brussels"
+    ],
+    "region": "Europe",
+    "flag": "🇧🇪"
+  },
+  {
+    "id": "BLZ",
+    "name": "Belize",
+    "official": "Belize",
+    "aliases": [],
+    "capitals": [
+      "Belmopan"
+    ],
+    "region": "Americas",
+    "flag": "🇧🇿"
+  },
+  {
+    "id": "BEN",
+    "name": "Benin",
+    "official": "Republic of Benin",
+    "aliases": [
+      "Republic of Benin",
+      "République du Bénin"
+    ],
+    "capitals": [
+      "Porto-Novo"
+    ],
+    "region": "Africa",
+    "flag": "🇧🇯"
+  },
+  {
+    "id": "BTN",
+    "name": "Bhutan",
+    "official": "Kingdom of Bhutan",
+    "aliases": [
+      "Kingdom of Bhutan"
+    ],
+    "capitals": [
+      "Thimphu"
+    ],
+    "region": "Asia",
+    "flag": "🇧🇹"
+  },
+  {
+    "id": "BOL",
+    "name": "Bolivia",
+    "official": "Plurinational State of Bolivia",
+    "aliases": [
+      "Buliwya",
+      "Wuliwya",
+      "Bolivia, Plurinational State of",
+      "Plurinational State of Bolivia",
+      "Estado Plurinacional de Bolivia",
+      "Buliwya Mamallaqta",
+      "Wuliwya Suyu",
+      "Tetã Volívia"
+    ],
+    "capitals": [
+      "Sucre"
+    ],
+    "region": "Americas",
+    "flag": "🇧🇴"
+  },
+  {
+    "id": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "official": "Bosnia and Herzegovina",
+    "aliases": [
+      "Bosnia-Herzegovina",
+      "Босна и Херцеговина"
+    ],
+    "capitals": [
+      "Sarajevo"
+    ],
+    "region": "Europe",
+    "flag": "🇧🇦"
+  },
+  {
+    "id": "BWA",
+    "name": "Botswana",
+    "official": "Republic of Botswana",
+    "aliases": [
+      "Republic of Botswana",
+      "Lefatshe la Botswana"
+    ],
+    "capitals": [
+      "Gaborone"
+    ],
+    "region": "Africa",
+    "flag": "🇧🇼"
+  },
+  {
+    "id": "BRA",
+    "name": "Brazil",
+    "official": "Federative Republic of Brazil",
+    "aliases": [
+      "Brasil",
+      "Federative Republic of Brazil",
+      "República Federativa do Brasil"
+    ],
+    "capitals": [
+      "Brasília"
+    ],
+    "region": "Americas",
+    "flag": "🇧🇷"
+  },
+  {
+    "id": "BRN",
+    "name": "Brunei",
+    "official": "Nation of Brunei, Abode of Peace",
+    "aliases": [
+      "Brunei Darussalam",
+      "Nation of Brunei",
+      "the Abode of Peace"
+    ],
+    "capitals": [
+      "Bandar Seri Begawan"
+    ],
+    "region": "Asia",
+    "flag": "🇧🇳"
+  },
+  {
+    "id": "BGR",
+    "name": "Bulgaria",
+    "official": "Republic of Bulgaria",
+    "aliases": [
+      "Republic of Bulgaria",
+      "Република България"
+    ],
+    "capitals": [
+      "Sofia"
+    ],
+    "region": "Europe",
+    "flag": "🇧🇬"
+  },
+  {
+    "id": "BFA",
+    "name": "Burkina Faso",
+    "official": "Burkina Faso",
+    "aliases": [],
+    "capitals": [
+      "Ouagadougou"
+    ],
+    "region": "Africa",
+    "flag": "🇧🇫"
+  },
+  {
+    "id": "BDI",
+    "name": "Burundi",
+    "official": "Republic of Burundi",
+    "aliases": [
+      "Republic of Burundi",
+      "Republika y'Uburundi",
+      "République du Burundi"
+    ],
+    "capitals": [
+      "Gitega"
+    ],
+    "region": "Africa",
+    "flag": "🇧🇮"
+  },
+  {
+    "id": "KHM",
+    "name": "Cambodia",
+    "official": "Kingdom of Cambodia",
+    "aliases": [
+      "Kingdom of Cambodia"
+    ],
+    "capitals": [
+      "Phnom Penh"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇭"
+  },
+  {
+    "id": "CMR",
+    "name": "Cameroon",
+    "official": "Republic of Cameroon",
+    "aliases": [
+      "Republic of Cameroon",
+      "République du Cameroun"
+    ],
+    "capitals": [
+      "Yaoundé"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇲"
+  },
+  {
+    "id": "CAN",
+    "name": "Canada",
+    "official": "Canada",
+    "aliases": [],
+    "capitals": [
+      "Ottawa"
+    ],
+    "region": "Americas",
+    "flag": "🇨🇦"
+  },
+  {
+    "id": "CPV",
+    "name": "Cape Verde",
+    "official": "Republic of Cabo Verde",
+    "aliases": [
+      "Republic of Cabo Verde",
+      "República de Cabo Verde"
+    ],
+    "capitals": [
+      "Praia"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇻"
+  },
+  {
+    "id": "CAF",
+    "name": "Central African Republic",
+    "official": "Central African Republic",
+    "aliases": [
+      "Central African Republic",
+      "République centrafricaine"
+    ],
+    "capitals": [
+      "Bangui"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇫"
+  },
+  {
+    "id": "TCD",
+    "name": "Chad",
+    "official": "Republic of Chad",
+    "aliases": [
+      "Tchad",
+      "Republic of Chad",
+      "République du Tchad"
+    ],
+    "capitals": [
+      "N'Djamena"
+    ],
+    "region": "Africa",
+    "flag": "🇹🇩"
+  },
+  {
+    "id": "CHL",
+    "name": "Chile",
+    "official": "Republic of Chile",
+    "aliases": [
+      "Republic of Chile",
+      "República de Chile"
+    ],
+    "capitals": [
+      "Santiago"
+    ],
+    "region": "Americas",
+    "flag": "🇨🇱"
+  },
+  {
+    "id": "CHN",
+    "name": "China",
+    "official": "People's Republic of China",
+    "aliases": [
+      "Zhōngguó",
+      "Zhongguo",
+      "Zhonghua",
+      "People's Republic of China",
+      "中华人民共和国",
+      "Zhōnghuá Rénmín Gònghéguó"
+    ],
+    "capitals": [
+      "Beijing"
+    ],
+    "region": "Asia",
+    "flag": "🇨🇳"
+  },
+  {
+    "id": "COL",
+    "name": "Colombia",
+    "official": "Republic of Colombia",
+    "aliases": [
+      "Republic of Colombia",
+      "República de Colombia"
+    ],
+    "capitals": [
+      "Bogotá"
+    ],
+    "region": "Americas",
+    "flag": "🇨🇴"
+  },
+  {
+    "id": "COM",
+    "name": "Comoros",
+    "official": "Union of the Comoros",
+    "aliases": [
+      "Union of the Comoros",
+      "Union des Comores",
+      "Udzima wa Komori",
+      "al-Ittiḥād al-Qumurī"
+    ],
+    "capitals": [
+      "Moroni"
+    ],
+    "region": "Africa",
+    "flag": "🇰🇲"
+  },
+  {
+    "id": "COG",
+    "name": "Congo",
+    "official": "Republic of the Congo",
+    "aliases": [
+      "Congo",
+      "Congo-Brazzaville"
+    ],
+    "capitals": [
+      "Brazzaville"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇬"
+  },
+  {
+    "id": "CRI",
+    "name": "Costa Rica",
+    "official": "Republic of Costa Rica",
+    "aliases": [
+      "Republic of Costa Rica",
+      "República de Costa Rica"
+    ],
+    "capitals": [
+      "San José"
+    ],
+    "region": "Americas",
+    "flag": "🇨🇷"
+  },
+  {
+    "id": "HRV",
+    "name": "Croatia",
+    "official": "Republic of Croatia",
+    "aliases": [
+      "Hrvatska",
+      "Republic of Croatia",
+      "Republika Hrvatska"
+    ],
+    "capitals": [
+      "Zagreb"
+    ],
+    "region": "Europe",
+    "flag": "🇭🇷"
+  },
+  {
+    "id": "CUB",
+    "name": "Cuba",
+    "official": "Republic of Cuba",
+    "aliases": [
+      "Republic of Cuba",
+      "República de Cuba"
+    ],
+    "capitals": [
+      "Havana"
+    ],
+    "region": "Americas",
+    "flag": "🇨🇺"
+  },
+  {
+    "id": "CYP",
+    "name": "Cyprus",
+    "official": "Republic of Cyprus",
+    "aliases": [
+      "Kýpros",
+      "Kıbrıs",
+      "Republic of Cyprus",
+      "Κυπριακή Δημοκρατία",
+      "Kıbrıs Cumhuriyeti"
+    ],
+    "capitals": [
+      "Nicosia"
+    ],
+    "region": "Europe",
+    "flag": "🇨🇾"
+  },
+  {
+    "id": "CZE",
+    "name": "Czechia",
+    "official": "Czech Republic",
+    "aliases": [
+      "Česká republika",
+      "Česko"
+    ],
+    "capitals": [
+      "Prague"
+    ],
+    "region": "Europe",
+    "flag": "🇨🇿"
+  },
+  {
+    "id": "COD",
+    "name": "DR Congo",
+    "official": "Democratic Republic of the Congo",
+    "aliases": [
+      "DR Congo",
+      "Congo-Kinshasa",
+      "Congo, the Democratic Republic of the",
+      "Democratic Republic of Congo",
+      "DRC"
+    ],
+    "capitals": [
+      "Kinshasa"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇩"
+  },
+  {
+    "id": "DNK",
+    "name": "Denmark",
+    "official": "Kingdom of Denmark",
+    "aliases": [
+      "Danmark",
+      "Kingdom of Denmark",
+      "Kongeriget Danmark"
+    ],
+    "capitals": [
+      "Copenhagen"
+    ],
+    "region": "Europe",
+    "flag": "🇩🇰"
+  },
+  {
+    "id": "DJI",
+    "name": "Djibouti",
+    "official": "Republic of Djibouti",
+    "aliases": [
+      "Jabuuti",
+      "Gabuuti",
+      "Republic of Djibouti",
+      "République de Djibouti",
+      "Gabuutih Ummuuno",
+      "Jamhuuriyadda Jabuuti"
+    ],
+    "capitals": [
+      "Djibouti"
+    ],
+    "region": "Africa",
+    "flag": "🇩🇯"
+  },
+  {
+    "id": "DMA",
+    "name": "Dominica",
+    "official": "Commonwealth of Dominica",
+    "aliases": [
+      "Dominique",
+      "Wai‘tu kubuli",
+      "Commonwealth of Dominica"
+    ],
+    "capitals": [
+      "Roseau"
+    ],
+    "region": "Americas",
+    "flag": "🇩🇲"
+  },
+  {
+    "id": "DOM",
+    "name": "Dominican Republic",
+    "official": "Dominican Republic",
+    "aliases": [],
+    "capitals": [
+      "Santo Domingo"
+    ],
+    "region": "Americas",
+    "flag": "🇩🇴"
+  },
+  {
+    "id": "ECU",
+    "name": "Ecuador",
+    "official": "Republic of Ecuador",
+    "aliases": [
+      "Republic of Ecuador",
+      "República del Ecuador"
+    ],
+    "capitals": [
+      "Quito"
+    ],
+    "region": "Americas",
+    "flag": "🇪🇨"
+  },
+  {
+    "id": "EGY",
+    "name": "Egypt",
+    "official": "Arab Republic of Egypt",
+    "aliases": [
+      "Arab Republic of Egypt"
+    ],
+    "capitals": [
+      "Cairo"
+    ],
+    "region": "Africa",
+    "flag": "🇪🇬"
+  },
+  {
+    "id": "SLV",
+    "name": "El Salvador",
+    "official": "Republic of El Salvador",
+    "aliases": [
+      "Republic of El Salvador",
+      "República de El Salvador"
+    ],
+    "capitals": [
+      "San Salvador"
+    ],
+    "region": "Americas",
+    "flag": "🇸🇻"
+  },
+  {
+    "id": "GNQ",
+    "name": "Equatorial Guinea",
+    "official": "Republic of Equatorial Guinea",
+    "aliases": [
+      "Republic of Equatorial Guinea",
+      "República de Guinea Ecuatorial",
+      "République de Guinée équatoriale",
+      "República da Guiné Equatorial"
+    ],
+    "capitals": [
+      "Malabo"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇶"
+  },
+  {
+    "id": "ERI",
+    "name": "Eritrea",
+    "official": "State of Eritrea",
+    "aliases": [
+      "State of Eritrea",
+      "ሃገረ ኤርትራ",
+      "Dawlat Iritriyá",
+      "ʾErtrā",
+      "Iritriyā"
+    ],
+    "capitals": [
+      "Asmara"
+    ],
+    "region": "Africa",
+    "flag": "🇪🇷"
+  },
+  {
+    "id": "EST",
+    "name": "Estonia",
+    "official": "Republic of Estonia",
+    "aliases": [
+      "Eesti",
+      "Republic of Estonia",
+      "Eesti Vabariik"
+    ],
+    "capitals": [
+      "Tallinn"
+    ],
+    "region": "Europe",
+    "flag": "🇪🇪"
+  },
+  {
+    "id": "SWZ",
+    "name": "Eswatini",
+    "official": "Kingdom of Eswatini",
+    "aliases": [
+      "Swaziland",
+      "weSwatini",
+      "Swatini",
+      "Ngwane",
+      "Kingdom of Eswatini",
+      "Umbuso weSwatini"
+    ],
+    "capitals": [
+      "Lobamba"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇿"
+  },
+  {
+    "id": "ETH",
+    "name": "Ethiopia",
+    "official": "Federal Democratic Republic of Ethiopia",
+    "aliases": [
+      "ʾĪtyōṗṗyā",
+      "Federal Democratic Republic of Ethiopia",
+      "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ"
+    ],
+    "capitals": [
+      "Addis Ababa"
+    ],
+    "region": "Africa",
+    "flag": "🇪🇹"
+  },
+  {
+    "id": "FJI",
+    "name": "Fiji",
+    "official": "Republic of Fiji",
+    "aliases": [
+      "Viti",
+      "Republic of Fiji",
+      "Matanitu ko Viti",
+      "Fijī Gaṇarājya"
+    ],
+    "capitals": [
+      "Suva"
+    ],
+    "region": "Oceania",
+    "flag": "🇫🇯"
+  },
+  {
+    "id": "FIN",
+    "name": "Finland",
+    "official": "Republic of Finland",
+    "aliases": [
+      "Suomi",
+      "Republic of Finland",
+      "Suomen tasavalta",
+      "Republiken Finland"
+    ],
+    "capitals": [
+      "Helsinki"
+    ],
+    "region": "Europe",
+    "flag": "🇫🇮"
+  },
+  {
+    "id": "FRA",
+    "name": "France",
+    "official": "French Republic",
+    "aliases": [
+      "French Republic",
+      "République française"
+    ],
+    "capitals": [
+      "Paris"
+    ],
+    "region": "Europe",
+    "flag": "🇫🇷"
+  },
+  {
+    "id": "GAB",
+    "name": "Gabon",
+    "official": "Gabonese Republic",
+    "aliases": [
+      "Gabonese Republic",
+      "République Gabonaise"
+    ],
+    "capitals": [
+      "Libreville"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇦"
+  },
+  {
+    "id": "GMB",
+    "name": "Gambia",
+    "official": "Republic of the Gambia",
+    "aliases": [
+      "Republic of the Gambia"
+    ],
+    "capitals": [
+      "Banjul"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇲"
+  },
+  {
+    "id": "GEO",
+    "name": "Georgia",
+    "official": "Georgia",
+    "aliases": [
+      "Sakartvelo"
+    ],
+    "capitals": [
+      "Tbilisi"
+    ],
+    "region": "Asia",
+    "flag": "🇬🇪"
+  },
+  {
+    "id": "DEU",
+    "name": "Germany",
+    "official": "Federal Republic of Germany",
+    "aliases": [
+      "Federal Republic of Germany",
+      "Bundesrepublik Deutschland"
+    ],
+    "capitals": [
+      "Berlin"
+    ],
+    "region": "Europe",
+    "flag": "🇩🇪"
+  },
+  {
+    "id": "GHA",
+    "name": "Ghana",
+    "official": "Republic of Ghana",
+    "aliases": [],
+    "capitals": [
+      "Accra"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇭"
+  },
+  {
+    "id": "GRC",
+    "name": "Greece",
+    "official": "Hellenic Republic",
+    "aliases": [
+      "Elláda",
+      "Hellenic Republic",
+      "Ελληνική Δημοκρατία"
+    ],
+    "capitals": [
+      "Athens"
+    ],
+    "region": "Europe",
+    "flag": "🇬🇷"
+  },
+  {
+    "id": "GRD",
+    "name": "Grenada",
+    "official": "Grenada",
+    "aliases": [],
+    "capitals": [
+      "St. George's"
+    ],
+    "region": "Americas",
+    "flag": "🇬🇩"
+  },
+  {
+    "id": "GTM",
+    "name": "Guatemala",
+    "official": "Republic of Guatemala",
+    "aliases": [],
+    "capitals": [
+      "Guatemala City"
+    ],
+    "region": "Americas",
+    "flag": "🇬🇹"
+  },
+  {
+    "id": "GIN",
+    "name": "Guinea",
+    "official": "Republic of Guinea",
+    "aliases": [
+      "Republic of Guinea",
+      "République de Guinée"
+    ],
+    "capitals": [
+      "Conakry"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇳"
+  },
+  {
+    "id": "GNB",
+    "name": "Guinea-Bissau",
+    "official": "Republic of Guinea-Bissau",
+    "aliases": [
+      "Republic of Guinea-Bissau",
+      "República da Guiné-Bissau"
+    ],
+    "capitals": [
+      "Bissau"
+    ],
+    "region": "Africa",
+    "flag": "🇬🇼"
+  },
+  {
+    "id": "GUY",
+    "name": "Guyana",
+    "official": "Co-operative Republic of Guyana",
+    "aliases": [
+      "Co-operative Republic of Guyana"
+    ],
+    "capitals": [
+      "Georgetown"
+    ],
+    "region": "Americas",
+    "flag": "🇬🇾"
+  },
+  {
+    "id": "HTI",
+    "name": "Haiti",
+    "official": "Republic of Haiti",
+    "aliases": [
+      "Republic of Haiti",
+      "République d'Haïti",
+      "Repiblik Ayiti"
+    ],
+    "capitals": [
+      "Port-au-Prince"
+    ],
+    "region": "Americas",
+    "flag": "🇭🇹"
+  },
+  {
+    "id": "HND",
+    "name": "Honduras",
+    "official": "Republic of Honduras",
+    "aliases": [
+      "Republic of Honduras",
+      "República de Honduras"
+    ],
+    "capitals": [
+      "Tegucigalpa"
+    ],
+    "region": "Americas",
+    "flag": "🇭🇳"
+  },
+  {
+    "id": "HUN",
+    "name": "Hungary",
+    "official": "Hungary",
+    "aliases": [],
+    "capitals": [
+      "Budapest"
+    ],
+    "region": "Europe",
+    "flag": "🇭🇺"
+  },
+  {
+    "id": "ISL",
+    "name": "Iceland",
+    "official": "Iceland",
+    "aliases": [
+      "Island",
+      "Republic of Iceland",
+      "Lýðveldið Ísland"
+    ],
+    "capitals": [
+      "Reykjavik"
+    ],
+    "region": "Europe",
+    "flag": "🇮🇸"
+  },
+  {
+    "id": "IND",
+    "name": "India",
+    "official": "Republic of India",
+    "aliases": [
+      "Bhārat",
+      "Republic of India",
+      "Bharat Ganrajya",
+      "இந்தியா"
+    ],
+    "capitals": [
+      "New Delhi"
+    ],
+    "region": "Asia",
+    "flag": "🇮🇳"
+  },
+  {
+    "id": "IDN",
+    "name": "Indonesia",
+    "official": "Republic of Indonesia",
+    "aliases": [
+      "Republic of Indonesia",
+      "Republik Indonesia"
+    ],
+    "capitals": [
+      "Jakarta"
+    ],
+    "region": "Asia",
+    "flag": "🇮🇩"
+  },
+  {
+    "id": "IRN",
+    "name": "Iran",
+    "official": "Islamic Republic of Iran",
+    "aliases": [
+      "Islamic Republic of Iran",
+      "Iran, Islamic Republic of",
+      "Jomhuri-ye Eslāmi-ye Irān"
+    ],
+    "capitals": [
+      "Tehran"
+    ],
+    "region": "Asia",
+    "flag": "🇮🇷"
+  },
+  {
+    "id": "IRQ",
+    "name": "Iraq",
+    "official": "Republic of Iraq",
+    "aliases": [
+      "Republic of Iraq",
+      "Jumhūriyyat al-‘Irāq"
+    ],
+    "capitals": [
+      "Baghdad"
+    ],
+    "region": "Asia",
+    "flag": "🇮🇶"
+  },
+  {
+    "id": "IRL",
+    "name": "Ireland",
+    "official": "Republic of Ireland",
+    "aliases": [
+      "Éire",
+      "Republic of Ireland",
+      "Poblacht na hÉireann"
+    ],
+    "capitals": [
+      "Dublin"
+    ],
+    "region": "Europe",
+    "flag": "🇮🇪"
+  },
+  {
+    "id": "ISR",
+    "name": "Israel",
+    "official": "State of Israel",
+    "aliases": [
+      "State of Israel",
+      "Medīnat Yisrā'el"
+    ],
+    "capitals": [
+      "Jerusalem"
+    ],
+    "region": "Asia",
+    "flag": "🇮🇱"
+  },
+  {
+    "id": "ITA",
+    "name": "Italy",
+    "official": "Italian Republic",
+    "aliases": [
+      "Italian Republic",
+      "Repubblica italiana"
+    ],
+    "capitals": [
+      "Rome"
+    ],
+    "region": "Europe",
+    "flag": "🇮🇹"
+  },
+  {
+    "id": "CIV",
+    "name": "Ivory Coast",
+    "official": "Republic of Côte d'Ivoire",
+    "aliases": [
+      "Côte d'Ivoire",
+      "Cote d'Ivoire",
+      "Ivory Coast",
+      "Republic of Côte d'Ivoire",
+      "République de Côte d'Ivoire"
+    ],
+    "capitals": [
+      "Yamoussoukro"
+    ],
+    "region": "Africa",
+    "flag": "🇨🇮"
+  },
+  {
+    "id": "JAM",
+    "name": "Jamaica",
+    "official": "Jamaica",
+    "aliases": [],
+    "capitals": [
+      "Kingston"
+    ],
+    "region": "Americas",
+    "flag": "🇯🇲"
+  },
+  {
+    "id": "JPN",
+    "name": "Japan",
+    "official": "Japan",
+    "aliases": [
+      "Nippon",
+      "Nihon"
+    ],
+    "capitals": [
+      "Tokyo"
+    ],
+    "region": "Asia",
+    "flag": "🇯🇵"
+  },
+  {
+    "id": "JOR",
+    "name": "Jordan",
+    "official": "Hashemite Kingdom of Jordan",
+    "aliases": [
+      "Hashemite Kingdom of Jordan",
+      "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+    ],
+    "capitals": [
+      "Amman"
+    ],
+    "region": "Asia",
+    "flag": "🇯🇴"
+  },
+  {
+    "id": "KAZ",
+    "name": "Kazakhstan",
+    "official": "Republic of Kazakhstan",
+    "aliases": [
+      "Qazaqstan",
+      "Казахстан",
+      "Republic of Kazakhstan",
+      "Қазақстан Республикасы",
+      "Qazaqstan Respublïkası",
+      "Республика Казахстан",
+      "Respublika Kazakhstan"
+    ],
+    "capitals": [
+      "Astana"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇿"
+  },
+  {
+    "id": "KEN",
+    "name": "Kenya",
+    "official": "Republic of Kenya",
+    "aliases": [
+      "Republic of Kenya",
+      "Jamhuri ya Kenya"
+    ],
+    "capitals": [
+      "Nairobi"
+    ],
+    "region": "Africa",
+    "flag": "🇰🇪"
+  },
+  {
+    "id": "KIR",
+    "name": "Kiribati",
+    "official": "Independent and Sovereign Republic of Kiribati",
+    "aliases": [
+      "Republic of Kiribati",
+      "Ribaberiki Kiribati"
+    ],
+    "capitals": [
+      "South Tarawa"
+    ],
+    "region": "Oceania",
+    "flag": "🇰🇮"
+  },
+  {
+    "id": "KWT",
+    "name": "Kuwait",
+    "official": "State of Kuwait",
+    "aliases": [
+      "State of Kuwait",
+      "Dawlat al-Kuwait"
+    ],
+    "capitals": [
+      "Kuwait City"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇼"
+  },
+  {
+    "id": "KGZ",
+    "name": "Kyrgyzstan",
+    "official": "Kyrgyz Republic",
+    "aliases": [
+      "Киргизия",
+      "Kyrgyz Republic",
+      "Кыргыз Республикасы",
+      "Kyrgyz Respublikasy"
+    ],
+    "capitals": [
+      "Bishkek"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇬"
+  },
+  {
+    "id": "LAO",
+    "name": "Laos",
+    "official": "Lao People's Democratic Republic",
+    "aliases": [
+      "Lao",
+      "Lao People's Democratic Republic",
+      "Sathalanalat Paxathipatai Paxaxon Lao"
+    ],
+    "capitals": [
+      "Vientiane"
+    ],
+    "region": "Asia",
+    "flag": "🇱🇦"
+  },
+  {
+    "id": "LVA",
+    "name": "Latvia",
+    "official": "Republic of Latvia",
+    "aliases": [
+      "Republic of Latvia",
+      "Latvijas Republika"
+    ],
+    "capitals": [
+      "Riga"
+    ],
+    "region": "Europe",
+    "flag": "🇱🇻"
+  },
+  {
+    "id": "LBN",
+    "name": "Lebanon",
+    "official": "Lebanese Republic",
+    "aliases": [
+      "Lebanese Republic",
+      "Al-Jumhūrīyah Al-Libnānīyah"
+    ],
+    "capitals": [
+      "Beirut"
+    ],
+    "region": "Asia",
+    "flag": "🇱🇧"
+  },
+  {
+    "id": "LSO",
+    "name": "Lesotho",
+    "official": "Kingdom of Lesotho",
+    "aliases": [
+      "Kingdom of Lesotho",
+      "Muso oa Lesotho"
+    ],
+    "capitals": [
+      "Maseru"
+    ],
+    "region": "Africa",
+    "flag": "🇱🇸"
+  },
+  {
+    "id": "LBR",
+    "name": "Liberia",
+    "official": "Republic of Liberia",
+    "aliases": [
+      "Republic of Liberia"
+    ],
+    "capitals": [
+      "Monrovia"
+    ],
+    "region": "Africa",
+    "flag": "🇱🇷"
+  },
+  {
+    "id": "LBY",
+    "name": "Libya",
+    "official": "State of Libya",
+    "aliases": [
+      "State of Libya",
+      "Dawlat Libya"
+    ],
+    "capitals": [
+      "Tripoli"
+    ],
+    "region": "Africa",
+    "flag": "🇱🇾"
+  },
+  {
+    "id": "LIE",
+    "name": "Liechtenstein",
+    "official": "Principality of Liechtenstein",
+    "aliases": [
+      "Principality of Liechtenstein",
+      "Fürstentum Liechtenstein"
+    ],
+    "capitals": [
+      "Vaduz"
+    ],
+    "region": "Europe",
+    "flag": "🇱🇮"
+  },
+  {
+    "id": "LTU",
+    "name": "Lithuania",
+    "official": "Republic of Lithuania",
+    "aliases": [
+      "Republic of Lithuania",
+      "Lietuvos Respublika"
+    ],
+    "capitals": [
+      "Vilnius"
+    ],
+    "region": "Europe",
+    "flag": "🇱🇹"
+  },
+  {
+    "id": "LUX",
+    "name": "Luxembourg",
+    "official": "Grand Duchy of Luxembourg",
+    "aliases": [
+      "Grand Duchy of Luxembourg",
+      "Grand-Duché de Luxembourg",
+      "Großherzogtum Luxemburg",
+      "Groussherzogtum Lëtzebuerg"
+    ],
+    "capitals": [
+      "Luxembourg"
+    ],
+    "region": "Europe",
+    "flag": "🇱🇺"
+  },
+  {
+    "id": "MDG",
+    "name": "Madagascar",
+    "official": "Republic of Madagascar",
+    "aliases": [
+      "Republic of Madagascar",
+      "Repoblikan'i Madagasikara",
+      "République de Madagascar"
+    ],
+    "capitals": [
+      "Antananarivo"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇬"
+  },
+  {
+    "id": "MWI",
+    "name": "Malawi",
+    "official": "Republic of Malawi",
+    "aliases": [
+      "Republic of Malawi"
+    ],
+    "capitals": [
+      "Lilongwe"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇼"
+  },
+  {
+    "id": "MYS",
+    "name": "Malaysia",
+    "official": "Malaysia",
+    "aliases": [],
+    "capitals": [
+      "Kuala Lumpur"
+    ],
+    "region": "Asia",
+    "flag": "🇲🇾"
+  },
+  {
+    "id": "MDV",
+    "name": "Maldives",
+    "official": "Republic of the Maldives",
+    "aliases": [
+      "Maldive Islands",
+      "Republic of the Maldives",
+      "Dhivehi Raajjeyge Jumhooriyya"
+    ],
+    "capitals": [
+      "Malé"
+    ],
+    "region": "Asia",
+    "flag": "🇲🇻"
+  },
+  {
+    "id": "MLI",
+    "name": "Mali",
+    "official": "Republic of Mali",
+    "aliases": [
+      "Republic of Mali",
+      "République du Mali"
+    ],
+    "capitals": [
+      "Bamako"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇱"
+  },
+  {
+    "id": "MLT",
+    "name": "Malta",
+    "official": "Republic of Malta",
+    "aliases": [
+      "Republic of Malta",
+      "Repubblika ta' Malta"
+    ],
+    "capitals": [
+      "Valletta"
+    ],
+    "region": "Europe",
+    "flag": "🇲🇹"
+  },
+  {
+    "id": "MHL",
+    "name": "Marshall Islands",
+    "official": "Republic of the Marshall Islands",
+    "aliases": [
+      "Republic of the Marshall Islands",
+      "Aolepān Aorōkin M̧ajeļ"
+    ],
+    "capitals": [
+      "Majuro"
+    ],
+    "region": "Oceania",
+    "flag": "🇲🇭"
+  },
+  {
+    "id": "MRT",
+    "name": "Mauritania",
+    "official": "Islamic Republic of Mauritania",
+    "aliases": [
+      "Islamic Republic of Mauritania",
+      "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+    ],
+    "capitals": [
+      "Nouakchott"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇷"
+  },
+  {
+    "id": "MUS",
+    "name": "Mauritius",
+    "official": "Republic of Mauritius",
+    "aliases": [
+      "Republic of Mauritius",
+      "République de Maurice"
+    ],
+    "capitals": [
+      "Port Louis"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇺"
+  },
+  {
+    "id": "MEX",
+    "name": "Mexico",
+    "official": "United Mexican States",
+    "aliases": [
+      "Mexicanos",
+      "United Mexican States",
+      "Estados Unidos Mexicanos"
+    ],
+    "capitals": [
+      "Mexico City"
+    ],
+    "region": "Americas",
+    "flag": "🇲🇽"
+  },
+  {
+    "id": "FSM",
+    "name": "Micronesia",
+    "official": "Federated States of Micronesia",
+    "aliases": [
+      "Federated States of Micronesia",
+      "Micronesia, Federated States of"
+    ],
+    "capitals": [
+      "Palikir"
+    ],
+    "region": "Oceania",
+    "flag": "🇫🇲"
+  },
+  {
+    "id": "MDA",
+    "name": "Moldova",
+    "official": "Republic of Moldova",
+    "aliases": [
+      "Moldova, Republic of",
+      "Republic of Moldova",
+      "Republica Moldova"
+    ],
+    "capitals": [
+      "Chișinău"
+    ],
+    "region": "Europe",
+    "flag": "🇲🇩"
+  },
+  {
+    "id": "MCO",
+    "name": "Monaco",
+    "official": "Principality of Monaco",
+    "aliases": [
+      "Principality of Monaco",
+      "Principauté de Monaco"
+    ],
+    "capitals": [
+      "Monaco"
+    ],
+    "region": "Europe",
+    "flag": "🇲🇨"
+  },
+  {
+    "id": "MNG",
+    "name": "Mongolia",
+    "official": "Mongolia",
+    "aliases": [],
+    "capitals": [
+      "Ulan Bator"
+    ],
+    "region": "Asia",
+    "flag": "🇲🇳"
+  },
+  {
+    "id": "MNE",
+    "name": "Montenegro",
+    "official": "Montenegro",
+    "aliases": [
+      "Crna Gora"
+    ],
+    "capitals": [
+      "Podgorica"
+    ],
+    "region": "Europe",
+    "flag": "🇲🇪"
+  },
+  {
+    "id": "MAR",
+    "name": "Morocco",
+    "official": "Kingdom of Morocco",
+    "aliases": [
+      "Kingdom of Morocco",
+      "Al-Mamlakah al-Maġribiyah"
+    ],
+    "capitals": [
+      "Rabat"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇦"
+  },
+  {
+    "id": "MOZ",
+    "name": "Mozambique",
+    "official": "Republic of Mozambique",
+    "aliases": [
+      "Republic of Mozambique",
+      "República de Moçambique"
+    ],
+    "capitals": [
+      "Maputo"
+    ],
+    "region": "Africa",
+    "flag": "🇲🇿"
+  },
+  {
+    "id": "MMR",
+    "name": "Myanmar",
+    "official": "Republic of the Union of Myanmar",
+    "aliases": [
+      "Burma",
+      "Republic of the Union of Myanmar",
+      "Pyidaunzu Thanmăda Myăma Nainngandaw"
+    ],
+    "capitals": [
+      "Naypyidaw"
+    ],
+    "region": "Asia",
+    "flag": "🇲🇲"
+  },
+  {
+    "id": "NAM",
+    "name": "Namibia",
+    "official": "Republic of Namibia",
+    "aliases": [
+      "Namibië",
+      "Republic of Namibia"
+    ],
+    "capitals": [
+      "Windhoek"
+    ],
+    "region": "Africa",
+    "flag": "🇳🇦"
+  },
+  {
+    "id": "NRU",
+    "name": "Nauru",
+    "official": "Republic of Nauru",
+    "aliases": [
+      "Naoero",
+      "Pleasant Island",
+      "Republic of Nauru",
+      "Ripublik Naoero"
+    ],
+    "capitals": [
+      "Yaren"
+    ],
+    "region": "Oceania",
+    "flag": "🇳🇷"
+  },
+  {
+    "id": "NPL",
+    "name": "Nepal",
+    "official": "Federal Democratic Republic of Nepal",
+    "aliases": [
+      "Federal Democratic Republic of Nepal",
+      "Loktāntrik Ganatantra Nepāl"
+    ],
+    "capitals": [
+      "Kathmandu"
+    ],
+    "region": "Asia",
+    "flag": "🇳🇵"
+  },
+  {
+    "id": "NLD",
+    "name": "Netherlands",
+    "official": "Kingdom of the Netherlands",
+    "aliases": [
+      "Holland",
+      "Nederland",
+      "The Netherlands"
+    ],
+    "capitals": [
+      "Amsterdam"
+    ],
+    "region": "Europe",
+    "flag": "🇳🇱"
+  },
+  {
+    "id": "NZL",
+    "name": "New Zealand",
+    "official": "New Zealand",
+    "aliases": [
+      "Aotearoa"
+    ],
+    "capitals": [
+      "Wellington"
+    ],
+    "region": "Oceania",
+    "flag": "🇳🇿"
+  },
+  {
+    "id": "NIC",
+    "name": "Nicaragua",
+    "official": "Republic of Nicaragua",
+    "aliases": [
+      "Republic of Nicaragua",
+      "República de Nicaragua"
+    ],
+    "capitals": [
+      "Managua"
+    ],
+    "region": "Americas",
+    "flag": "🇳🇮"
+  },
+  {
+    "id": "NER",
+    "name": "Niger",
+    "official": "Republic of Niger",
+    "aliases": [
+      "Nijar"
+    ],
+    "capitals": [
+      "Niamey"
+    ],
+    "region": "Africa",
+    "flag": "🇳🇪"
+  },
+  {
+    "id": "NGA",
+    "name": "Nigeria",
+    "official": "Federal Republic of Nigeria",
+    "aliases": [
+      "Nijeriya",
+      "Naíjíríà",
+      "Federal Republic of Nigeria"
+    ],
+    "capitals": [
+      "Abuja"
+    ],
+    "region": "Africa",
+    "flag": "🇳🇬"
+  },
+  {
+    "id": "PRK",
+    "name": "North Korea",
+    "official": "Democratic People's Republic of Korea",
+    "aliases": [
+      "Democratic People's Republic of Korea",
+      "DPRK",
+      "조선민주주의인민공화국",
+      "Chosŏn Minjujuŭi Inmin Konghwaguk",
+      "Korea, Democratic People's Republic of",
+      "북조선"
+    ],
+    "capitals": [
+      "Pyongyang"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇵"
+  },
+  {
+    "id": "MKD",
+    "name": "North Macedonia",
+    "official": "Republic of North Macedonia",
+    "aliases": [
+      "The former Yugoslav Republic of Macedonia",
+      "Republic of North Macedonia",
+      "Macedonia, The Former Yugoslav Republic of",
+      "Република Северна Македонија",
+      "Macedonia"
+    ],
+    "capitals": [
+      "Skopje"
+    ],
+    "region": "Europe",
+    "flag": "🇲🇰"
+  },
+  {
+    "id": "NOR",
+    "name": "Norway",
+    "official": "Kingdom of Norway",
+    "aliases": [
+      "Norge",
+      "Noreg",
+      "Kingdom of Norway",
+      "Kongeriket Norge",
+      "Kongeriket Noreg"
+    ],
+    "capitals": [
+      "Oslo"
+    ],
+    "region": "Europe",
+    "flag": "🇳🇴"
+  },
+  {
+    "id": "OMN",
+    "name": "Oman",
+    "official": "Sultanate of Oman",
+    "aliases": [
+      "Sultanate of Oman",
+      "Salṭanat ʻUmān"
+    ],
+    "capitals": [
+      "Muscat"
+    ],
+    "region": "Asia",
+    "flag": "🇴🇲"
+  },
+  {
+    "id": "PAK",
+    "name": "Pakistan",
+    "official": "Islamic Republic of Pakistan",
+    "aliases": [
+      "Pākistān",
+      "Islamic Republic of Pakistan",
+      "Islāmī Jumhūriya'eh Pākistān"
+    ],
+    "capitals": [
+      "Islamabad"
+    ],
+    "region": "Asia",
+    "flag": "🇵🇰"
+  },
+  {
+    "id": "PLW",
+    "name": "Palau",
+    "official": "Republic of Palau",
+    "aliases": [
+      "Republic of Palau",
+      "Beluu er a Belau"
+    ],
+    "capitals": [
+      "Ngerulmud"
+    ],
+    "region": "Oceania",
+    "flag": "🇵🇼"
+  },
+  {
+    "id": "PSE",
+    "name": "Palestine",
+    "official": "State of Palestine",
+    "aliases": [
+      "Palestine, State of",
+      "State of Palestine",
+      "Dawlat Filasṭin"
+    ],
+    "capitals": [
+      "Ramallah"
+    ],
+    "region": "Asia",
+    "flag": "🇵🇸"
+  },
+  {
+    "id": "PAN",
+    "name": "Panama",
+    "official": "Republic of Panama",
+    "aliases": [
+      "Republic of Panama",
+      "República de Panamá"
+    ],
+    "capitals": [
+      "Panama City"
+    ],
+    "region": "Americas",
+    "flag": "🇵🇦"
+  },
+  {
+    "id": "PNG",
+    "name": "Papua New Guinea",
+    "official": "Independent State of Papua New Guinea",
+    "aliases": [
+      "Independent State of Papua New Guinea",
+      "Independen Stet bilong Papua Niugini"
+    ],
+    "capitals": [
+      "Port Moresby"
+    ],
+    "region": "Oceania",
+    "flag": "🇵🇬"
+  },
+  {
+    "id": "PRY",
+    "name": "Paraguay",
+    "official": "Republic of Paraguay",
+    "aliases": [
+      "Republic of Paraguay",
+      "República del Paraguay",
+      "Tetã Paraguái"
+    ],
+    "capitals": [
+      "Asunción"
+    ],
+    "region": "Americas",
+    "flag": "🇵🇾"
+  },
+  {
+    "id": "PER",
+    "name": "Peru",
+    "official": "Republic of Peru",
+    "aliases": [
+      "Republic of Peru",
+      "República del Perú"
+    ],
+    "capitals": [
+      "Lima"
+    ],
+    "region": "Americas",
+    "flag": "🇵🇪"
+  },
+  {
+    "id": "PHL",
+    "name": "Philippines",
+    "official": "Republic of the Philippines",
+    "aliases": [
+      "Republic of the Philippines",
+      "Repúblika ng Pilipinas"
+    ],
+    "capitals": [
+      "Manila"
+    ],
+    "region": "Asia",
+    "flag": "🇵🇭"
+  },
+  {
+    "id": "POL",
+    "name": "Poland",
+    "official": "Republic of Poland",
+    "aliases": [
+      "Republic of Poland",
+      "Rzeczpospolita Polska"
+    ],
+    "capitals": [
+      "Warsaw"
+    ],
+    "region": "Europe",
+    "flag": "🇵🇱"
+  },
+  {
+    "id": "PRT",
+    "name": "Portugal",
+    "official": "Portuguese Republic",
+    "aliases": [
+      "Portuguesa",
+      "Portuguese Republic",
+      "República Portuguesa"
+    ],
+    "capitals": [
+      "Lisbon"
+    ],
+    "region": "Europe",
+    "flag": "🇵🇹"
+  },
+  {
+    "id": "QAT",
+    "name": "Qatar",
+    "official": "State of Qatar",
+    "aliases": [
+      "State of Qatar",
+      "Dawlat Qaṭar"
+    ],
+    "capitals": [
+      "Doha"
+    ],
+    "region": "Asia",
+    "flag": "🇶🇦"
+  },
+  {
+    "id": "ROU",
+    "name": "Romania",
+    "official": "Romania",
+    "aliases": [
+      "Rumania",
+      "Roumania",
+      "România"
+    ],
+    "capitals": [
+      "Bucharest"
+    ],
+    "region": "Europe",
+    "flag": "🇷🇴"
+  },
+  {
+    "id": "RUS",
+    "name": "Russia",
+    "official": "Russian Federation",
+    "aliases": [
+      "Russian Federation",
+      "Российская Федерация"
+    ],
+    "capitals": [
+      "Moscow"
+    ],
+    "region": "Europe",
+    "flag": "🇷🇺"
+  },
+  {
+    "id": "RWA",
+    "name": "Rwanda",
+    "official": "Republic of Rwanda",
+    "aliases": [
+      "Republic of Rwanda",
+      "Repubulika y'u Rwanda",
+      "République du Rwanda"
+    ],
+    "capitals": [
+      "Kigali"
+    ],
+    "region": "Africa",
+    "flag": "🇷🇼"
+  },
+  {
+    "id": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "official": "Federation of Saint Christopher and Nevis",
+    "aliases": [
+      "Federation of Saint Christopher and Nevis"
+    ],
+    "capitals": [
+      "Basseterre"
+    ],
+    "region": "Americas",
+    "flag": "🇰🇳"
+  },
+  {
+    "id": "LCA",
+    "name": "Saint Lucia",
+    "official": "Saint Lucia",
+    "aliases": [],
+    "capitals": [
+      "Castries"
+    ],
+    "region": "Americas",
+    "flag": "🇱🇨"
+  },
+  {
+    "id": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "official": "Saint Vincent and the Grenadines",
+    "aliases": [],
+    "capitals": [
+      "Kingstown"
+    ],
+    "region": "Americas",
+    "flag": "🇻🇨"
+  },
+  {
+    "id": "WSM",
+    "name": "Samoa",
+    "official": "Independent State of Samoa",
+    "aliases": [
+      "Independent State of Samoa",
+      "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+    ],
+    "capitals": [
+      "Apia"
+    ],
+    "region": "Oceania",
+    "flag": "🇼🇸"
+  },
+  {
+    "id": "SMR",
+    "name": "San Marino",
+    "official": "Most Serene Republic of San Marino",
+    "aliases": [
+      "Republic of San Marino",
+      "Repubblica di San Marino"
+    ],
+    "capitals": [
+      "City of San Marino"
+    ],
+    "region": "Europe",
+    "flag": "🇸🇲"
+  },
+  {
+    "id": "SAU",
+    "name": "Saudi Arabia",
+    "official": "Kingdom of Saudi Arabia",
+    "aliases": [
+      "Saudi",
+      "Kingdom of Saudi Arabia",
+      "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+    ],
+    "capitals": [
+      "Riyadh"
+    ],
+    "region": "Asia",
+    "flag": "🇸🇦"
+  },
+  {
+    "id": "SEN",
+    "name": "Senegal",
+    "official": "Republic of Senegal",
+    "aliases": [
+      "Republic of Senegal",
+      "République du Sénégal"
+    ],
+    "capitals": [
+      "Dakar"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇳"
+  },
+  {
+    "id": "SRB",
+    "name": "Serbia",
+    "official": "Republic of Serbia",
+    "aliases": [
+      "Srbija",
+      "Republika Srbija",
+      "Србија",
+      "Република Србија",
+      "Republic of Serbia"
+    ],
+    "capitals": [
+      "Belgrade"
+    ],
+    "region": "Europe",
+    "flag": "🇷🇸"
+  },
+  {
+    "id": "SYC",
+    "name": "Seychelles",
+    "official": "Republic of Seychelles",
+    "aliases": [
+      "Republic of Seychelles",
+      "Repiblik Sesel",
+      "République des Seychelles"
+    ],
+    "capitals": [
+      "Victoria"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇨"
+  },
+  {
+    "id": "SLE",
+    "name": "Sierra Leone",
+    "official": "Republic of Sierra Leone",
+    "aliases": [
+      "Republic of Sierra Leone"
+    ],
+    "capitals": [
+      "Freetown"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇱"
+  },
+  {
+    "id": "SGP",
+    "name": "Singapore",
+    "official": "Republic of Singapore",
+    "aliases": [
+      "Singapura",
+      "Republik Singapura",
+      "新加坡共和国"
+    ],
+    "capitals": [
+      "Singapore"
+    ],
+    "region": "Asia",
+    "flag": "🇸🇬"
+  },
+  {
+    "id": "SVK",
+    "name": "Slovakia",
+    "official": "Slovak Republic",
+    "aliases": [
+      "Slovak Republic",
+      "Slovenská republika"
+    ],
+    "capitals": [
+      "Bratislava"
+    ],
+    "region": "Europe",
+    "flag": "🇸🇰"
+  },
+  {
+    "id": "SVN",
+    "name": "Slovenia",
+    "official": "Republic of Slovenia",
+    "aliases": [
+      "Republic of Slovenia",
+      "Republika Slovenija"
+    ],
+    "capitals": [
+      "Ljubljana"
+    ],
+    "region": "Europe",
+    "flag": "🇸🇮"
+  },
+  {
+    "id": "SLB",
+    "name": "Solomon Islands",
+    "official": "Solomon Islands",
+    "aliases": [],
+    "capitals": [
+      "Honiara"
+    ],
+    "region": "Oceania",
+    "flag": "🇸🇧"
+  },
+  {
+    "id": "SOM",
+    "name": "Somalia",
+    "official": "Federal Republic of Somalia",
+    "aliases": [
+      "aṣ-Ṣūmāl",
+      "Federal Republic of Somalia",
+      "Jamhuuriyadda Federaalka Soomaaliya",
+      "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+    ],
+    "capitals": [
+      "Mogadishu"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇴"
+  },
+  {
+    "id": "ZAF",
+    "name": "South Africa",
+    "official": "Republic of South Africa",
+    "aliases": [
+      "RSA",
+      "Suid-Afrika",
+      "Republic of South Africa"
+    ],
+    "capitals": [
+      "Pretoria",
+      "Bloemfontein",
+      "Cape Town"
+    ],
+    "region": "Africa",
+    "flag": "🇿🇦"
+  },
+  {
+    "id": "KOR",
+    "name": "South Korea",
+    "official": "Republic of Korea",
+    "aliases": [
+      "Korea, Republic of",
+      "Republic of Korea",
+      "남조선"
+    ],
+    "capitals": [
+      "Seoul"
+    ],
+    "region": "Asia",
+    "flag": "🇰🇷"
+  },
+  {
+    "id": "SSD",
+    "name": "South Sudan",
+    "official": "Republic of South Sudan",
+    "aliases": [],
+    "capitals": [
+      "Juba"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇸"
+  },
+  {
+    "id": "ESP",
+    "name": "Spain",
+    "official": "Kingdom of Spain",
+    "aliases": [
+      "Kingdom of Spain",
+      "Reino de España"
+    ],
+    "capitals": [
+      "Madrid"
+    ],
+    "region": "Europe",
+    "flag": "🇪🇸"
+  },
+  {
+    "id": "LKA",
+    "name": "Sri Lanka",
+    "official": "Democratic Socialist Republic of Sri Lanka",
+    "aliases": [
+      "ilaṅkai",
+      "Democratic Socialist Republic of Sri Lanka"
+    ],
+    "capitals": [
+      "Colombo"
+    ],
+    "region": "Asia",
+    "flag": "🇱🇰"
+  },
+  {
+    "id": "SDN",
+    "name": "Sudan",
+    "official": "Republic of the Sudan",
+    "aliases": [
+      "Republic of the Sudan",
+      "Jumhūrīyat as-Sūdān"
+    ],
+    "capitals": [
+      "Khartoum"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇩"
+  },
+  {
+    "id": "SUR",
+    "name": "Suriname",
+    "official": "Republic of Suriname",
+    "aliases": [
+      "Sarnam",
+      "Sranangron",
+      "Republic of Suriname",
+      "Republiek Suriname"
+    ],
+    "capitals": [
+      "Paramaribo"
+    ],
+    "region": "Americas",
+    "flag": "🇸🇷"
+  },
+  {
+    "id": "SWE",
+    "name": "Sweden",
+    "official": "Kingdom of Sweden",
+    "aliases": [
+      "Kingdom of Sweden",
+      "Konungariket Sverige"
+    ],
+    "capitals": [
+      "Stockholm"
+    ],
+    "region": "Europe",
+    "flag": "🇸🇪"
+  },
+  {
+    "id": "CHE",
+    "name": "Switzerland",
+    "official": "Swiss Confederation",
+    "aliases": [
+      "Swiss Confederation",
+      "Schweiz",
+      "Suisse",
+      "Svizzera",
+      "Svizra"
+    ],
+    "capitals": [
+      "Bern"
+    ],
+    "region": "Europe",
+    "flag": "🇨🇭"
+  },
+  {
+    "id": "SYR",
+    "name": "Syria",
+    "official": "Syrian Arab Republic",
+    "aliases": [
+      "Syrian Arab Republic",
+      "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+    ],
+    "capitals": [
+      "Damascus"
+    ],
+    "region": "Asia",
+    "flag": "🇸🇾"
+  },
+  {
+    "id": "STP",
+    "name": "São Tomé and Príncipe",
+    "official": "Democratic Republic of São Tomé and Príncipe",
+    "aliases": [
+      "Democratic Republic of São Tomé and Príncipe",
+      "Sao Tome and Principe",
+      "República Democrática de São Tomé e Príncipe"
+    ],
+    "capitals": [
+      "São Tomé"
+    ],
+    "region": "Africa",
+    "flag": "🇸🇹"
+  },
+  {
+    "id": "TJK",
+    "name": "Tajikistan",
+    "official": "Republic of Tajikistan",
+    "aliases": [
+      "Toçikiston",
+      "Republic of Tajikistan",
+      "Ҷумҳурии Тоҷикистон",
+      "Çumhuriyi Toçikiston"
+    ],
+    "capitals": [
+      "Dushanbe"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇯"
+  },
+  {
+    "id": "TZA",
+    "name": "Tanzania",
+    "official": "United Republic of Tanzania",
+    "aliases": [
+      "Tanzania, United Republic of",
+      "United Republic of Tanzania",
+      "Jamhuri ya Muungano wa Tanzania"
+    ],
+    "capitals": [
+      "Dodoma"
+    ],
+    "region": "Africa",
+    "flag": "🇹🇿"
+  },
+  {
+    "id": "THA",
+    "name": "Thailand",
+    "official": "Kingdom of Thailand",
+    "aliases": [
+      "Prathet",
+      "Thai",
+      "Kingdom of Thailand",
+      "ราชอาณาจักรไทย",
+      "Ratcha Anachak Thai"
+    ],
+    "capitals": [
+      "Bangkok"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇭"
+  },
+  {
+    "id": "TLS",
+    "name": "Timor-Leste",
+    "official": "Democratic Republic of Timor-Leste",
+    "aliases": [
+      "East Timor",
+      "Timor",
+      "Democratic Republic of Timor-Leste",
+      "República Democrática de Timor-Leste",
+      "Repúblika Demokrátika Timór-Leste",
+      "Timór Lorosa'e",
+      "Timor Lorosae"
+    ],
+    "capitals": [
+      "Dili"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇱"
+  },
+  {
+    "id": "TGO",
+    "name": "Togo",
+    "official": "Togolese Republic",
+    "aliases": [
+      "Togolese",
+      "Togolese Republic",
+      "République Togolaise"
+    ],
+    "capitals": [
+      "Lomé"
+    ],
+    "region": "Africa",
+    "flag": "🇹🇬"
+  },
+  {
+    "id": "TON",
+    "name": "Tonga",
+    "official": "Kingdom of Tonga",
+    "aliases": [],
+    "capitals": [
+      "Nuku'alofa"
+    ],
+    "region": "Oceania",
+    "flag": "🇹🇴"
+  },
+  {
+    "id": "TTO",
+    "name": "Trinidad and Tobago",
+    "official": "Republic of Trinidad and Tobago",
+    "aliases": [
+      "Republic of Trinidad and Tobago"
+    ],
+    "capitals": [
+      "Port of Spain"
+    ],
+    "region": "Americas",
+    "flag": "🇹🇹"
+  },
+  {
+    "id": "TUN",
+    "name": "Tunisia",
+    "official": "Tunisian Republic",
+    "aliases": [
+      "Republic of Tunisia",
+      "al-Jumhūriyyah at-Tūnisiyyah"
+    ],
+    "capitals": [
+      "Tunis"
+    ],
+    "region": "Africa",
+    "flag": "🇹🇳"
+  },
+  {
+    "id": "TKM",
+    "name": "Turkmenistan",
+    "official": "Turkmenistan",
+    "aliases": [],
+    "capitals": [
+      "Ashgabat"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇲"
+  },
+  {
+    "id": "TUV",
+    "name": "Tuvalu",
+    "official": "Tuvalu",
+    "aliases": [],
+    "capitals": [
+      "Funafuti"
+    ],
+    "region": "Oceania",
+    "flag": "🇹🇻"
+  },
+  {
+    "id": "TUR",
+    "name": "Türkiye",
+    "official": "Republic of Türkiye",
+    "aliases": [
+      "Turkiye",
+      "Republic of Turkey",
+      "Türkiye Cumhuriyeti"
+    ],
+    "capitals": [
+      "Ankara"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇷"
+  },
+  {
+    "id": "UGA",
+    "name": "Uganda",
+    "official": "Republic of Uganda",
+    "aliases": [
+      "Republic of Uganda",
+      "Jamhuri ya Uganda"
+    ],
+    "capitals": [
+      "Kampala"
+    ],
+    "region": "Africa",
+    "flag": "🇺🇬"
+  },
+  {
+    "id": "UKR",
+    "name": "Ukraine",
+    "official": "Ukraine",
+    "aliases": [
+      "Ukrayina"
+    ],
+    "capitals": [
+      "Kyiv"
+    ],
+    "region": "Europe",
+    "flag": "🇺🇦"
+  },
+  {
+    "id": "ARE",
+    "name": "United Arab Emirates",
+    "official": "United Arab Emirates",
+    "aliases": [
+      "UAE",
+      "Emirates"
+    ],
+    "capitals": [
+      "Abu Dhabi"
+    ],
+    "region": "Asia",
+    "flag": "🇦🇪"
+  },
+  {
+    "id": "GBR",
+    "name": "United Kingdom",
+    "official": "United Kingdom of Great Britain and Northern Ireland",
+    "aliases": [
+      "Great Britain"
+    ],
+    "capitals": [
+      "London"
+    ],
+    "region": "Europe",
+    "flag": "🇬🇧"
+  },
+  {
+    "id": "USA",
+    "name": "United States",
+    "official": "United States of America",
+    "aliases": [
+      "USA",
+      "United States of America"
+    ],
+    "capitals": [
+      "Washington D.C."
+    ],
+    "region": "Americas",
+    "flag": "🇺🇸"
+  },
+  {
+    "id": "URY",
+    "name": "Uruguay",
+    "official": "Oriental Republic of Uruguay",
+    "aliases": [
+      "Oriental Republic of Uruguay",
+      "República Oriental del Uruguay"
+    ],
+    "capitals": [
+      "Montevideo"
+    ],
+    "region": "Americas",
+    "flag": "🇺🇾"
+  },
+  {
+    "id": "UZB",
+    "name": "Uzbekistan",
+    "official": "Republic of Uzbekistan",
+    "aliases": [
+      "Republic of Uzbekistan",
+      "O‘zbekiston Respublikasi",
+      "Ўзбекистон Республикаси"
+    ],
+    "capitals": [
+      "Tashkent"
+    ],
+    "region": "Asia",
+    "flag": "🇺🇿"
+  },
+  {
+    "id": "VUT",
+    "name": "Vanuatu",
+    "official": "Republic of Vanuatu",
+    "aliases": [
+      "Republic of Vanuatu",
+      "Ripablik blong Vanuatu",
+      "République de Vanuatu"
+    ],
+    "capitals": [
+      "Port Vila"
+    ],
+    "region": "Oceania",
+    "flag": "🇻🇺"
+  },
+  {
+    "id": "VAT",
+    "name": "Vatican City",
+    "official": "Vatican City State",
+    "aliases": [
+      "Holy See (Vatican City State)",
+      "Vatican City State",
+      "Vatican",
+      "Stato della Città del Vaticano"
+    ],
+    "capitals": [
+      "Vatican City"
+    ],
+    "region": "Europe",
+    "flag": "🇻🇦"
+  },
+  {
+    "id": "VEN",
+    "name": "Venezuela",
+    "official": "Bolivarian Republic of Venezuela",
+    "aliases": [
+      "Bolivarian Republic of Venezuela",
+      "Venezuela, Bolivarian Republic of",
+      "República Bolivariana de Venezuela"
+    ],
+    "capitals": [
+      "Caracas"
+    ],
+    "region": "Americas",
+    "flag": "🇻🇪"
+  },
+  {
+    "id": "VNM",
+    "name": "Vietnam",
+    "official": "Socialist Republic of Vietnam",
+    "aliases": [
+      "Socialist Republic of Vietnam",
+      "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+      "Viet Nam"
+    ],
+    "capitals": [
+      "Hanoi"
+    ],
+    "region": "Asia",
+    "flag": "🇻🇳"
+  },
+  {
+    "id": "YEM",
+    "name": "Yemen",
+    "official": "Republic of Yemen",
+    "aliases": [
+      "Yemeni Republic",
+      "al-Jumhūriyyah al-Yamaniyyah"
+    ],
+    "capitals": [
+      "Sana'a"
+    ],
+    "region": "Asia",
+    "flag": "🇾🇪"
+  },
+  {
+    "id": "ZMB",
+    "name": "Zambia",
+    "official": "Republic of Zambia",
+    "aliases": [
+      "Republic of Zambia"
+    ],
+    "capitals": [
+      "Lusaka"
+    ],
+    "region": "Africa",
+    "flag": "🇿🇲"
+  },
+  {
+    "id": "ZWE",
+    "name": "Zimbabwe",
+    "official": "Republic of Zimbabwe",
+    "aliases": [
+      "Republic of Zimbabwe"
+    ],
+    "capitals": [
+      "Harare"
+    ],
+    "region": "Africa",
+    "flag": "🇿🇼"
+  }
+]
