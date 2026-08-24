@@ -128,3 +128,17 @@ async def test_menu_selection_wraps_around() -> None:
         await pilot.press("enter")
         await pilot.pause()
         assert not app.is_running
+
+
+async def test_menu_can_start_a_region_quiz() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        screen = app.screen
+        assert isinstance(screen, MenuScreen)
+
+        await pilot.press("down")  # first region after "the whole world"
+        await pilot.press("enter")
+        quiz = app.screen
+        assert isinstance(quiz, QuizScreen)
+        assert 0 < len(quiz.countries) < 195
+        assert len({c.region for c in quiz.countries}) == 1

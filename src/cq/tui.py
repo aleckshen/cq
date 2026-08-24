@@ -57,8 +57,18 @@ class MenuEntry:
 def menu_entries() -> tuple[MenuEntry, ...]:
     """Built on demand rather than at import time, so `cq --help` doesn't
     read and parse the country dataset."""
+    countries = load_countries()
+    regions = sorted({country.region for country in countries})
     return (
-        MenuEntry("world", "the whole world", load_countries()),
+        MenuEntry("world", "the whole world", countries),
+        *(
+            MenuEntry(
+                region.lower(),
+                region.lower(),
+                tuple(c for c in countries if c.region == region),
+            )
+            for region in regions
+        ),
         MenuEntry("quit", "quit", ()),
     )
 
