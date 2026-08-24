@@ -48,7 +48,7 @@ class MenuScreen(Screen[None]):
         width: 100%;
         text-align: center;
         color: $text-muted;
-        margin-bottom: 1;
+        margin-bottom: 3;
     }
     MenuScreen OptionList {
         width: auto;
