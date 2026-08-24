@@ -165,3 +165,24 @@ async def test_duplicate_guess_is_cleared_and_reported() -> None:
         assert screen.quiz.score == 1
         assert screen.query_one("Input").value == ""
         assert "already found" in screen.query_one("#message", Static).content
+
+
+async def test_results_replay_starts_the_same_quiz_again() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("down")  # a region quiz, so the country set is distinctive
+        await pilot.press("enter")
+        quiz = app.screen
+        assert isinstance(quiz, QuizScreen)
+        countries = quiz.countries
+
+        await pilot.press("escape")
+        await pilot.pause()
+        assert isinstance(app.screen, ResultsScreen)
+
+        await pilot.press("r")
+        await pilot.pause()
+        replay = app.screen
+        assert isinstance(replay, QuizScreen)
+        assert replay.countries == countries
+        assert replay.quiz.score == 0
