@@ -100,6 +100,11 @@ class MenuScreen(Screen[None]):
 class QuizScreen(Screen[None]):
     """A single timed quiz: type guesses, no need to press enter."""
 
+    BINDINGS = [
+        Binding("escape", "give_up", "Menu"),
+        Binding("ctrl+r", "restart", "Restart"),
+    ]
+
     DEFAULT_CSS = """
     QuizScreen #status {
         height: auto;
@@ -165,6 +170,13 @@ class QuizScreen(Screen[None]):
             self.update_status()
             if self.quiz.is_complete(time.monotonic()):
                 self.finish()
+
+    def action_give_up(self) -> None:
+        self.finish()
+
+    def action_restart(self) -> None:
+        self._finished = True  # stop this screen's timer from re-entering finish()
+        self.app.switch_screen(QuizScreen(self.countries, self.duration))
 
     def finish(self) -> None:
         # on_tick and on_input_changed can both land on the last country, and

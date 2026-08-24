@@ -86,3 +86,31 @@ async def test_finish_is_idempotent() -> None:
 
         assert isinstance(app.screen, ResultsScreen)
         assert len(app.screen_stack) == depth
+
+
+async def test_escape_abandons_the_quiz() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        assert isinstance(app.screen, QuizScreen)
+
+        await pilot.press("escape")
+        await pilot.pause()
+        assert isinstance(app.screen, ResultsScreen)
+
+
+async def test_ctrl_r_restarts_the_quiz() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        first = app.screen
+        assert isinstance(first, QuizScreen)
+        await pilot.press(*"france")
+        assert first.quiz.score == 1
+
+        await pilot.press("ctrl+r")
+        await pilot.pause()
+        second = app.screen
+        assert isinstance(second, QuizScreen)
+        assert second is not first
+        assert second.quiz.score == 0
