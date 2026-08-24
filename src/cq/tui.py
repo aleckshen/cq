@@ -7,6 +7,7 @@ from textual.app import App, ComposeResult
 from textual.binding import Binding
 from textual.containers import Horizontal, Vertical
 from textual.screen import Screen
+from textual.theme import Theme
 from textual.widgets import Footer, Header, Input, OptionList, RichLog, Static
 from textual.widgets.option_list import Option
 
@@ -21,6 +22,21 @@ BANNER = r"""
 ╚██████╗╚██████╔╝
  ╚═════╝ ╚══▀▀═╝
 """.strip("\n")
+
+CQ_THEME = Theme(
+    name="cq",
+    primary="#7dcfff",
+    secondary="#bb9af7",
+    accent="#ff9e64",
+    success="#9ece6a",
+    warning="#e0af68",
+    error="#f7768e",
+    foreground="#c0caf5",
+    background="#16161e",
+    surface="#1a1b26",
+    panel="#292e42",
+    dark=True,
+)
 
 
 def menu_options() -> tuple[tuple[str, tuple[Country, ...]], ...]:
@@ -229,6 +245,21 @@ class CqApp(App[None]):
 
     TITLE = "cq"
 
+    CSS = """
+    Footer {
+        background: $surface;
+    }
+    Footer > .footer-key--key {
+        color: $accent;
+        background: $surface;
+    }
+    Footer > .footer-key--description {
+        color: $text-muted;
+        background: $surface;
+    }
+    """
+
     def on_mount(self) -> None:
-        self.theme = "tokyo-night"
+        self.register_theme(CQ_THEME)
+        self.theme = "cq"
         self.push_screen(MenuScreen())
