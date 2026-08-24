@@ -12,6 +12,7 @@ from textual.message import Message
 from textual.reactive import reactive
 from textual.screen import Screen
 from textual.theme import Theme
+from textual.timer import Timer
 from textual.widgets import Digits, Footer, Header, Input, Label, RichLog, Static
 
 from cq.countries import Country, load_countries
@@ -358,6 +359,17 @@ class QuizScreen(Screen[None]):
             border: round $primary;
         }}
     }}
+    QuizScreen Input.-hit {{
+        border: round $success;
+    }}
+    QuizScreen Input.-dupe {{
+        border: round $warning;
+    }}
+    QuizScreen #message {{
+        height: 1;
+        padding: 0 3;
+        color: $text-disabled;
+    }}
     """
 
     def __init__(
@@ -372,6 +384,7 @@ class QuizScreen(Screen[None]):
         self.quiz_title = title
         self.quiz = Quiz.start(countries, now=time.monotonic(), duration=duration)
         self._finished = False
+        self._flash_timer: Timer | None = None
 
     def compose(self) -> ComposeResult:
         with Horizontal(id="hud"):
@@ -385,6 +398,7 @@ class QuizScreen(Screen[None]):
             yield RegionPanel(id="regions")
         with Vertical(id="entry"):
             yield Input(placeholder="type a country…")
+        yield Static("", id="message")
         yield Footer()
 
     def on_mount(self) -> None:
@@ -425,10 +439,13 @@ class QuizScreen(Screen[None]):
             return
 
         self.query_one(Input).value = ""
+        country = result.country
         if result.outcome is GuessOutcome.DUPLICATE:
+            self.flash("-dupe", f"already found  {country.flag} {country.name}")
             return
 
-        self.record(result.country)
+        self.record(country)
+        self.flash("-hit", f"✓  {country.flag} {country.name}")
         self.update_status()
         if self.quiz.is_complete(time.monotonic()):
             self.finish()
@@ -447,6 +464,19 @@ class QuizScreen(Screen[None]):
         )
         self.query_one("#found", VerticalScroll).scroll_end(animate=False)
         self.query_one(RegionPanel).show(self.quiz.region_progress())
+
+    def flash(self, style: str, message: str) -> None:
+        """Tint the input border and echo the guess for a beat."""
+        entry = self.query_one(Input)
+        entry.remove_class("-hit", "-dupe")
+        entry.add_class(style)
+        self.query_one("#message", Static).update(message)
+        if self._flash_timer is not None:
+            self._flash_timer.stop()
+        self._flash_timer = self.set_timer(0.6, self.clear_flash)
+
+    def clear_flash(self) -> None:
+        self.query_one(Input).remove_class("-hit", "-dupe")
 
     def action_give_up(self) -> None:
         self.finish()

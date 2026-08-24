@@ -1,4 +1,4 @@
-from textual.widgets import Digits
+from textual.widgets import Digits, Static
 
 from cq.tui import (
     CqApp,
@@ -151,3 +151,17 @@ async def test_menu_can_start_a_region_quiz() -> None:
         assert isinstance(quiz, QuizScreen)
         assert 0 < len(quiz.countries) < 195
         assert len({c.region for c in quiz.countries}) == 1
+
+
+async def test_duplicate_guess_is_cleared_and_reported() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        screen = app.screen
+        assert isinstance(screen, QuizScreen)
+
+        await pilot.press(*"france")
+        await pilot.press(*"france")
+        assert screen.quiz.score == 1
+        assert screen.query_one("Input").value == ""
+        assert "already found" in screen.query_one("#message", Static).content
