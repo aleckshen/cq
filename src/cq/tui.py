@@ -22,10 +22,14 @@ BANNER = r"""
  ╚═════╝ ╚══▀▀═╝
 """.strip("\n")
 
-# (menu label, countries for that quiz) — add region entries here post-MVP.
-MENU_OPTIONS: tuple[tuple[str, tuple[Country, ...]], ...] = (
-    ("All Countries — World", load_countries()),
-)
+
+def menu_options() -> tuple[tuple[str, tuple[Country, ...]], ...]:
+    """(menu label, countries for that quiz) — add region entries post-MVP.
+
+    Built on demand rather than at import time, so `cq --help` doesn't read
+    and parse the country dataset.
+    """
+    return (("All Countries — World", load_countries()),)
 
 
 class MenuScreen(Screen[None]):
@@ -81,7 +85,7 @@ class MenuScreen(Screen[None]):
             yield OptionList(
                 *(
                     Option(f"🌍  {label}", id=f"quiz-{i}")
-                    for i, (label, _) in enumerate(MENU_OPTIONS)
+                    for i, (label, _) in enumerate(menu_options())
                 ),
                 Option("✕  Quit", id="quit"),
             )
@@ -93,7 +97,7 @@ class MenuScreen(Screen[None]):
             self.app.exit()
             return
         index = int(event.option_id.removeprefix("quiz-"))
-        _, countries = MENU_OPTIONS[index]
+        _, countries = menu_options()[index]
         self.app.push_screen(QuizScreen(countries))
 
 
