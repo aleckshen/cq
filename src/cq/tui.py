@@ -49,7 +49,7 @@ class MenuScreen(Screen[None]):
     MenuScreen #subtitle {
         width: auto;
         color: $text-muted;
-        margin-bottom: 1;
+        margin-bottom: 2;
     }
     MenuScreen OptionList {
         width: auto;
@@ -71,19 +71,12 @@ class MenuScreen(Screen[None]):
             text-style: bold;
         }
     }
-    MenuScreen #stat {
-        width: 100%;
-        text-align: center;
-        color: $text-muted;
-        margin-bottom: 2;
-    }
     """
 
     def compose(self) -> ComposeResult:
         with Vertical(id="dashboard"):
             yield Static(BANNER, id="logo")
             yield Static("terminal country quiz guesser", id="subtitle")
-            yield Static(f"({len(load_countries())} countries loaded)", id="stat")
             yield OptionList(
                 *(
                     Option(f"🌍  {label}", id=f"quiz-{i}")
