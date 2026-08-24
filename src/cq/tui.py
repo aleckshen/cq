@@ -49,6 +49,7 @@ class MenuScreen(Screen[None]):
     MenuScreen #subtitle {
         width: auto;
         color: $text-muted;
+        margin-bottom: 1;
     }
     MenuScreen OptionList {
         width: auto;
@@ -82,7 +83,7 @@ class MenuScreen(Screen[None]):
         with Vertical(id="dashboard"):
             yield Static(BANNER, id="logo")
             yield Static("terminal country quiz guesser", id="subtitle")
-            yield Static(f"{len(load_countries())} countries loaded", id="stat")
+            yield Static(f"({len(load_countries())} countries loaded)", id="stat")
             yield OptionList(
                 *(
                     Option(f"🌍  {label}", id=f"quiz-{i}")
