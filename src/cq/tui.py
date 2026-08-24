@@ -37,18 +37,18 @@ class MenuScreen(Screen[None]):
     MenuScreen #dashboard {
         width: auto;
         height: auto;
+        align: center middle;
     }
     MenuScreen #logo {
         width: 100%;
         text-align: center;
         color: $primary;
         text-style: bold;
+        margin-bottom: 2;
     }
     MenuScreen #subtitle {
-        width: 100%;
-        text-align: center;
+        width: auto;
         color: $text-muted;
-        margin-bottom: 3;
     }
     MenuScreen OptionList {
         width: auto;
@@ -74,14 +74,15 @@ class MenuScreen(Screen[None]):
         width: 100%;
         text-align: center;
         color: $text-muted;
-        margin-top: 1;
+        margin-bottom: 2;
     }
     """
 
     def compose(self) -> ComposeResult:
         with Vertical(id="dashboard"):
             yield Static(BANNER, id="logo")
-            yield Static("the terminal country quiz", id="subtitle")
+            yield Static("terminal country quiz guesser", id="subtitle")
+            yield Static(f"{len(load_countries())} countries loaded", id="stat")
             yield OptionList(
                 *(
                     Option(f"🌍  {label}", id=f"quiz-{i}")
@@ -89,7 +90,6 @@ class MenuScreen(Screen[None]):
                 ),
                 Option("✕  Quit", id="quit"),
             )
-            yield Static(f"{len(load_countries())} countries loaded", id="stat")
 
     def on_option_list_option_selected(
         self, event: OptionList.OptionSelected
