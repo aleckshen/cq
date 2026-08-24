@@ -1,6 +1,6 @@
 from textual.widgets import Static
 
-from cq.tui import CqApp, MenuScreen, QuizScreen, ResultsScreen
+from cq.tui import CqApp, MenuList, MenuScreen, QuizScreen, ResultsScreen
 
 
 async def test_menu_shows_and_selecting_opens_quiz() -> None:
@@ -114,3 +114,17 @@ async def test_ctrl_r_restarts_the_quiz() -> None:
         assert isinstance(second, QuizScreen)
         assert second is not first
         assert second.quiz.score == 0
+
+
+async def test_menu_selection_wraps_around() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        screen = app.screen
+        assert isinstance(screen, MenuScreen)
+        menu = screen.query_one(MenuList)
+
+        await pilot.press("up")  # wrap backwards onto "quit"
+        assert menu.index == len(menu.entries) - 1
+        await pilot.press("enter")
+        await pilot.pause()
+        assert not app.is_running
