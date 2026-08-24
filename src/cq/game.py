@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass, field
 from enum import Enum, auto
+from functools import cached_property
 
 from cq.countries import Country
 from cq.matching import build_answer_index, match
@@ -47,12 +48,17 @@ class Quiz:
             duration=duration,
         )
 
+    @cached_property
+    def by_id(self) -> dict[str, Country]:
+        """Country lookup by id — `submit` runs on every keystroke."""
+        return {country.id: country for country in self.countries}
+
     def submit(self, guess: str) -> GuessResult:
         country_id = match(guess, self.index)
         if country_id is None:
             return GuessResult(GuessOutcome.INCORRECT, None)
 
-        country = next(c for c in self.countries if c.id == country_id)
+        country = self.by_id[country_id]
         if country_id in self.answered:
             return GuessResult(GuessOutcome.DUPLICATE, country)
 
