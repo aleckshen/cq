@@ -6,13 +6,13 @@ from dataclasses import dataclass
 
 from textual.app import App, ComposeResult
 from textual.binding import Binding
-from textual.containers import Horizontal, Vertical
+from textual.containers import Horizontal, ItemGrid, Vertical, VerticalScroll
 from textual.content import Content
 from textual.message import Message
 from textual.reactive import reactive
 from textual.screen import Screen
 from textual.theme import Theme
-from textual.widgets import Footer, Header, Input, RichLog, Static
+from textual.widgets import Digits, Footer, Header, Input, Label, RichLog, Static
 
 from cq.countries import Country, load_countries
 from cq.game import DEFAULT_DURATION, GuessOutcome, Quiz
@@ -28,6 +28,11 @@ BANNER = r"""
 
 MENU_WIDTH = 46  # content width of the dashboard, minus its padding
 MENU_ROW_WIDTH = MENU_WIDTH - 4  # inside the menu panel's border and padding
+NARROW_WIDTH = 92  # below this the quiz hides its region sidebar
+SIDEBAR_WIDTH = 28
+COLUMN_WIDTH = 24  # min width of a found-country cell before the grid reflows
+TIMER_WIDTH = 19  # "15:00" in 3x3 digits, plus the tile's padding and border
+COUNT_WIDTH = 14  # three 3x3 digits, plus the tile's padding and border
 
 CQ_THEME = Theme(
     name="cq",
@@ -43,6 +48,23 @@ CQ_THEME = Theme(
     panel="#292e42",
     dark=True,
 )
+
+
+def track(done: int, total: int, width: int) -> Content:
+    """A solid two-tone progress track, `width` cells wide."""
+    width = max(width, 1)
+    filled = 0 if total <= 0 else round(width * done / total)
+    filled = max(0, min(width, filled))
+    return Content.styled("█" * filled, "$success") + Content.styled(
+        "█" * (width - filled), "$panel"
+    )
+
+
+def clock(seconds: float) -> str:
+    """Round *up* so a fresh 15:00 quiz reads 15:00, not 14:59."""
+    total = max(0, math.ceil(seconds))
+    minutes, secs = divmod(total, 60)
+    return f"{minutes:02d}:{secs:02d}"
 
 
 @dataclass(frozen=True, slots=True)
@@ -197,10 +219,43 @@ class MenuScreen(Screen[None]):
         if event.entry.key == "quit":
             self.app.exit()
             return
-        self.app.push_screen(QuizScreen(event.entry.countries))
+        self.app.push_screen(QuizScreen(event.entry.countries, title=event.entry.label))
 
     def action_quit_app(self) -> None:
         self.app.exit()
+
+
+class ProgressTile(Static):
+    """The `n found / n to go` tile, redrawn on resize as well as on score."""
+
+    done = reactive(0)
+    total = reactive(0)
+
+    def render(self) -> Content:
+        width = max(self.content_size.width, 8)
+        percent = 0 if self.total == 0 else round(100 * self.done / self.total)
+        caption = f"{self.done} of {self.total} · {self.total - self.done} to go"
+        return Content("\n").join(
+            (
+                track(self.done, self.total, width),
+                Content.styled(f"{percent}%".center(width), "bold $success"),
+                Content.styled(caption.center(width), "$text-muted"),
+            )
+        )
+
+
+class RegionPanel(Static):
+    """Sidebar showing how much of each region has been found."""
+
+    def show(self, progress: tuple[tuple[str, int, int], ...]) -> None:
+        width = max(self.content_size.width, 8)
+        lines: list[Content] = []
+        for region, found, total in progress:
+            head = f"{region.lower():<{max(width - 8, 1)}}{found:>3}/{total:<3}"
+            lines.append(Content.styled(head, "$text-muted"))
+            lines.append(track(found, total, width))
+            lines.append(Content(""))
+        self.update(Content("\n").join(lines))
 
 
 class QuizScreen(Screen[None]):
@@ -211,43 +266,141 @@ class QuizScreen(Screen[None]):
         Binding("ctrl+r", "restart", "Restart"),
     ]
 
-    DEFAULT_CSS = """
-    QuizScreen #status {
-        height: auto;
+    DEFAULT_CSS = f"""
+    QuizScreen {{
+        background: $background;
+    }}
+    QuizScreen #hud {{
+        height: 5;
         padding: 0 1;
-    }
-    QuizScreen #status Static {
-        width: auto;
+    }}
+    QuizScreen .tile {{
+        height: 5;
+        border: round $panel;
+        border-title-align: left;
+        border-title-color: $text-disabled;
+        padding: 0 1;
+        content-align: center middle;
+    }}
+    QuizScreen #timer {{
+        width: {TIMER_WIDTH};
+        text-align: center;
         color: $primary;
-        text-style: bold;
-        margin-right: 2;
-    }
-    QuizScreen RichLog {
+    }}
+    QuizScreen #timer.-warn {{
+        color: $warning;
+        border: round $warning 40%;
+    }}
+    QuizScreen #timer.-danger {{
+        color: $error;
+        border: round $error;
+    }}
+    QuizScreen #score {{
+        width: {COUNT_WIDTH};
+        text-align: center;
+        color: $success;
+    }}
+    QuizScreen #progress {{
+        width: 1fr;
+        color: $text;
+    }}
+    QuizScreen #board {{
         height: 1fr;
-        border: none;
-    }
+        padding: 0 1;
+    }}
+    QuizScreen #found {{
+        width: 1fr;
+        height: 100%;
+        border: round $panel;
+        border-title-align: left;
+        border-title-color: $text-disabled;
+        padding: 0 1;
+        scrollbar-size-vertical: 1;
+    }}
+    QuizScreen #found-grid {{
+        width: 100%;
+        height: auto;
+        grid-gutter: 0 1;
+    }}
+    QuizScreen .found-item {{
+        width: 100%;
+        height: 1;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }}
+    QuizScreen #empty-hint {{
+        width: 100%;
+        height: 100%;
+        content-align: center middle;
+        color: $text-disabled;
+    }}
+    QuizScreen #regions {{
+        width: {SIDEBAR_WIDTH};
+        height: 100%;
+        border: round $panel;
+        border-title-align: left;
+        border-title-color: $text-disabled;
+        padding: 1 1 0 1;
+        margin-left: 1;
+    }}
+    QuizScreen.-narrow #regions {{
+        display: none;
+    }}
+    QuizScreen #entry {{
+        height: 3;
+        padding: 0 1;
+    }}
+    QuizScreen Input {{
+        border: round $panel;
+        background: $surface;
+        padding: 0 1;
+        &:focus {{
+            border: round $primary;
+        }}
+    }}
     """
 
-    def __init__(self, countries: tuple[Country, ...], duration: float = DEFAULT_DURATION) -> None:
+    def __init__(
+        self,
+        countries: tuple[Country, ...],
+        duration: float = DEFAULT_DURATION,
+        title: str = "quiz",
+    ) -> None:
         super().__init__()
         self.countries = countries
         self.duration = duration
+        self.quiz_title = title
         self.quiz = Quiz.start(countries, now=time.monotonic(), duration=duration)
         self._finished = False
 
     def compose(self) -> ComposeResult:
-        yield Header()
-        with Horizontal(id="status"):
-            yield Static(id="timer")
-            yield Static(id="score")
-        yield RichLog(id="guessed", auto_scroll=True)
-        yield Input(placeholder="Type a country...")
+        with Horizontal(id="hud"):
+            yield Digits(clock(self.duration), id="timer", classes="tile")
+            yield Digits("0", id="score", classes="tile")
+            yield ProgressTile(id="progress", classes="tile")
+        with Horizontal(id="board"):
+            with VerticalScroll(id="found"):
+                yield Static("nothing found yet — start typing", id="empty-hint")
+                yield ItemGrid(id="found-grid", min_column_width=COLUMN_WIDTH)
+            yield RegionPanel(id="regions")
+        with Vertical(id="entry"):
+            yield Input(placeholder="type a country…")
         yield Footer()
 
     def on_mount(self) -> None:
+        self.query_one("#timer").border_title = "time left"
+        self.query_one("#score").border_title = "found"
+        self.query_one("#progress").border_title = self.quiz_title
+        self.query_one("#found").border_title = "your countries"
+        self.query_one("#regions").border_title = "regions"
+        self.query_one("#found-grid").display = False
         self.update_status()
-        self.set_interval(1.0, self.on_tick)
+        self.set_interval(0.25, self.on_tick)
         self.query_one(Input).focus()
+
+    def on_resize(self) -> None:
+        self.set_class(self.size.width < NARROW_WIDTH, "-narrow")
+        self.query_one(RegionPanel).show(self.quiz.region_progress())
 
     def on_tick(self) -> None:
         self.update_status()
@@ -255,34 +408,54 @@ class QuizScreen(Screen[None]):
             self.finish()
 
     def update_status(self) -> None:
-        # Round up: a quiz that has just started has 899.99s left, and
-        # truncating showed the player 14:59 on a 15:00 quiz.
-        remaining = math.ceil(self.quiz.remaining(time.monotonic()))
-        minutes, seconds = divmod(remaining, 60)
-        self.query_one("#timer", Static).update(f"⏱ {minutes:02d}:{seconds:02d}")
-        self.query_one("#score", Static).update(
-            f"Score: {self.quiz.score}/{self.quiz.total}"
-        )
+        remaining = self.quiz.remaining(time.monotonic())
+        timer = self.query_one("#timer", Digits)
+        timer.update(clock(remaining))
+        timer.set_class(15 <= remaining < 60, "-warn")
+        timer.set_class(remaining < 15, "-danger")
+
+        self.query_one("#score", Digits).update(str(self.quiz.score))
+        progress = self.query_one(ProgressTile)
+        progress.done = self.quiz.score
+        progress.total = self.quiz.total
 
     def on_input_changed(self, event: Input.Changed) -> None:
         result = self.quiz.submit(event.value)
-        if result.outcome is GuessOutcome.INCORRECT:
+        if result.outcome is GuessOutcome.INCORRECT or result.country is None:
             return
 
         self.query_one(Input).value = ""
-        if result.outcome is GuessOutcome.CORRECT and result.country is not None:
-            country = result.country
-            self.query_one("#guessed", RichLog).write(f"{country.flag} {country.name}")
-            self.update_status()
-            if self.quiz.is_complete(time.monotonic()):
-                self.finish()
+        if result.outcome is GuessOutcome.DUPLICATE:
+            return
+
+        self.record(result.country)
+        self.update_status()
+        if self.quiz.is_complete(time.monotonic()):
+            self.finish()
+
+    def record(self, country: Country) -> None:
+        """Add a freshly found country to the grid and the region sidebar."""
+        grid = self.query_one("#found-grid", ItemGrid)
+        if not grid.display:
+            self.query_one("#empty-hint").remove()
+            grid.display = True
+        grid.mount(
+            Label(
+                Content.styled(f"{country.flag} {country.name}", "$text"),
+                classes="found-item",
+            )
+        )
+        self.query_one("#found", VerticalScroll).scroll_end(animate=False)
+        self.query_one(RegionPanel).show(self.quiz.region_progress())
 
     def action_give_up(self) -> None:
         self.finish()
 
     def action_restart(self) -> None:
         self._finished = True  # stop this screen's timer from re-entering finish()
-        self.app.switch_screen(QuizScreen(self.countries, self.duration))
+        self.app.switch_screen(
+            QuizScreen(self.countries, self.duration, title=self.quiz_title)
+        )
 
     def finish(self) -> None:
         # on_tick and on_input_changed can both land on the last country, and

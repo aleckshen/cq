@@ -1,6 +1,13 @@
-from textual.widgets import Static
+from textual.widgets import Digits
 
-from cq.tui import CqApp, MenuList, MenuScreen, QuizScreen, ResultsScreen
+from cq.tui import (
+    CqApp,
+    MenuList,
+    MenuScreen,
+    ProgressTile,
+    QuizScreen,
+    ResultsScreen,
+)
 
 
 async def test_menu_shows_and_selecting_opens_quiz() -> None:
@@ -23,21 +30,23 @@ async def test_typing_a_country_scores_without_pressing_enter() -> None:
         assert screen.query_one("Input").value == ""
 
 
-async def test_timer_and_score_are_both_on_screen() -> None:
-    # Regression: unset `width` on Static defaults to filling the container,
-    # so two Statics side by side in a Horizontal push the second off-screen
-    # unless both are explicitly `width: auto`.
+async def test_hud_tiles_are_all_on_screen() -> None:
+    # Regression: a widget with no explicit `width` fills its container, so
+    # tiles side by side in a Horizontal push the later ones off-screen unless
+    # each one is sized (fixed cells, or 1fr for the tile that takes the slack).
     app = CqApp()
     async with app.run_test(size=(90, 30)) as pilot:
         await pilot.press("enter")
         screen = app.screen
         assert isinstance(screen, QuizScreen)
 
-        timer = screen.query_one("#timer", Static)
-        score = screen.query_one("#score", Static)
-        assert timer.region.right <= app.size.width
-        assert score.region.right <= app.size.width
+        timer = screen.query_one("#timer", Digits)
+        score = screen.query_one("#score", Digits)
+        progress = screen.query_one("#progress", ProgressTile)
+        for tile in (timer, score, progress):
+            assert tile.region.right <= app.size.width
         assert score.region.x >= timer.region.right
+        assert progress.region.x >= score.region.right
 
 
 async def test_incorrect_guess_leaves_text_and_score_unchanged() -> None:
