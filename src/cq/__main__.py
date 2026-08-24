@@ -1,1 +1,6 @@
-"""Entry point for `python -m cq` (wiring added later)."""
+"""Entry point for `python -m cq`."""
+
+from cq import main
+
+if __name__ == "__main__":
+    main()

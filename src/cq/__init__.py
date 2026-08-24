@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from cq!")
+from cq.cli import main
+
+__all__ = ["main"]
