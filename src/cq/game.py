@@ -81,3 +81,16 @@ class Quiz:
 
     def missed(self) -> tuple[Country, ...]:
         return tuple(c for c in self.countries if c.id not in self.answered)
+
+    def region_progress(self) -> tuple[tuple[str, int, int], ...]:
+        """(region, found, total) per region, ordered by descending total."""
+        totals: dict[str, int] = {}
+        found: dict[str, int] = {}
+        for country in self.countries:
+            totals[country.region] = totals.get(country.region, 0) + 1
+            if country.id in self.answered:
+                found[country.region] = found.get(country.region, 0) + 1
+        return tuple(
+            (region, found.get(region, 0), total)
+            for region, total in sorted(totals.items(), key=lambda kv: (-kv[1], kv[0]))
+        )

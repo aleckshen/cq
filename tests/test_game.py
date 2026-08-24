@@ -71,3 +71,24 @@ def test_missed_excludes_answered_countries() -> None:
     quiz = Quiz.start(COUNTRIES, now=0.0)
     quiz.submit("France")
     assert quiz.missed() == (GERMANY,)
+
+
+def test_region_progress_counts_found_against_total() -> None:
+    quiz = Quiz.start(COUNTRIES, now=0.0)
+    assert quiz.region_progress() == (("Europe", 0, 2),)
+    quiz.submit("France")
+    assert quiz.region_progress() == (("Europe", 1, 2),)
+
+
+def test_region_progress_orders_by_descending_total() -> None:
+    japan = Country(
+        id="JPN",
+        name="Japan",
+        official="Japan",
+        aliases=(),
+        capitals=("Tokyo",),
+        region="Asia",
+        flag="🇯🇵",
+    )
+    quiz = Quiz.start((*COUNTRIES, japan), now=0.0)
+    assert quiz.region_progress() == (("Europe", 0, 2), ("Asia", 0, 1))
