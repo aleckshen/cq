@@ -48,7 +48,6 @@ class MenuScreen(Screen[None]):
         width: 100%;
         text-align: center;
         color: $text-muted;
-        text-style: italic;
         margin-bottom: 1;
     }
     MenuScreen OptionList {
@@ -59,10 +58,15 @@ class MenuScreen(Screen[None]):
         &:focus {
             border: none;
             background-tint: $foreground 0%;
+            & > .option-list--option-highlighted {
+                color: $primary;
+                background: transparent;
+                text-style: bold;
+            }
         }
         & > .option-list--option-highlighted {
-            color: $text;
-            background: $primary 30%;
+            color: $primary;
+            background: transparent;
             text-style: bold;
         }
     }
@@ -70,7 +74,6 @@ class MenuScreen(Screen[None]):
         width: 100%;
         text-align: center;
         color: $text-muted;
-        text-style: italic;
         margin-top: 1;
     }
     """
