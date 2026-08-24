@@ -40,6 +40,9 @@ class QuizScreen(Screen[None]):
         height: auto;
         padding: 0 1;
     }
+    QuizScreen #status Static {
+        width: auto;
+    }
     QuizScreen RichLog {
         height: 1fr;
     }

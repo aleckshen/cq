@@ -1,3 +1,5 @@
+from textual.widgets import Static
+
 from cq.tui import CqApp, MenuScreen, QuizScreen, ResultsScreen
 
 
@@ -19,6 +21,23 @@ async def test_typing_a_country_scores_without_pressing_enter() -> None:
         await pilot.press(*"france")
         assert screen.quiz.score == 1
         assert screen.query_one("Input").value == ""
+
+
+async def test_timer_and_score_are_both_on_screen() -> None:
+    # Regression: unset `width` on Static defaults to filling the container,
+    # so two Statics side by side in a Horizontal push the second off-screen
+    # unless both are explicitly `width: auto`.
+    app = CqApp()
+    async with app.run_test(size=(90, 30)) as pilot:
+        await pilot.press("enter")
+        screen = app.screen
+        assert isinstance(screen, QuizScreen)
+
+        timer = screen.query_one("#timer", Static)
+        score = screen.query_one("#score", Static)
+        assert timer.region.right <= app.size.width
+        assert score.region.right <= app.size.width
+        assert score.region.x >= timer.region.right
 
 
 async def test_incorrect_guess_leaves_text_and_score_unchanged() -> None:
