@@ -1,5 +1,6 @@
 """Textual TUI application."""
 
+import math
 import time
 
 from textual.app import App, ComposeResult
@@ -142,7 +143,9 @@ class QuizScreen(Screen[None]):
             self.finish()
 
     def update_status(self) -> None:
-        remaining = int(self.quiz.remaining(time.monotonic()))
+        # Round up: a quiz that has just started has 899.99s left, and
+        # truncating showed the player 14:59 on a 15:00 quiz.
+        remaining = math.ceil(self.quiz.remaining(time.monotonic()))
         minutes, seconds = divmod(remaining, 60)
         self.query_one("#timer", Static).update(f"⏱ {minutes:02d}:{seconds:02d}")
         self.query_one("#score", Static).update(
