@@ -122,6 +122,7 @@ class QuizScreen(Screen[None]):
         self.countries = countries
         self.duration = duration
         self.quiz = Quiz.start(countries, now=time.monotonic(), duration=duration)
+        self._finished = False
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -166,6 +167,11 @@ class QuizScreen(Screen[None]):
                 self.finish()
 
     def finish(self) -> None:
+        # on_tick and on_input_changed can both land on the last country, and
+        # switching twice would stack two results screens.
+        if self._finished:
+            return
+        self._finished = True
         self.app.switch_screen(ResultsScreen(self.quiz))
 
 

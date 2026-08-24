@@ -68,3 +68,21 @@ async def test_finishing_the_quiz_shows_results() -> None:
         assert isinstance(app.screen, ResultsScreen)
         await pilot.press("escape")
         assert isinstance(app.screen, MenuScreen)
+
+
+async def test_finish_is_idempotent() -> None:
+    # Regression: on_tick and on_input_changed can both land on the last
+    # country, and two switch_screen calls would stack two results screens.
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        screen = app.screen
+        assert isinstance(screen, QuizScreen)
+
+        depth = len(app.screen_stack)
+        screen.finish()
+        screen.finish()
+        await pilot.pause()
+
+        assert isinstance(app.screen, ResultsScreen)
+        assert len(app.screen_stack) == depth
