@@ -4,12 +4,22 @@ import time
 
 from textual.app import App, ComposeResult
 from textual.binding import Binding
-from textual.containers import Horizontal
+from textual.containers import Horizontal, Vertical
 from textual.screen import Screen
 from textual.widgets import Footer, Header, Input, OptionList, RichLog, Static
+from textual.widgets.option_list import Option
 
 from cq.countries import Country, load_countries
 from cq.game import DEFAULT_DURATION, GuessOutcome, Quiz
+
+BANNER = r"""
+ ██████╗ ██████╗
+██╔════╝██╔═══██╗
+██║     ██║   ██║
+██║     ██║▄▄ ██║
+╚██████╗╚██████╔╝
+ ╚═════╝ ╚══▀▀═╝
+""".strip("\n")
 
 # (menu label, countries for that quiz) — add region entries here post-MVP.
 MENU_OPTIONS: tuple[tuple[str, tuple[Country, ...]], ...] = (
@@ -18,17 +28,74 @@ MENU_OPTIONS: tuple[tuple[str, tuple[Country, ...]], ...] = (
 
 
 class MenuScreen(Screen[None]):
-    """Landing screen: pick which quiz to start."""
+    """Landing screen: a centered dashboard to pick which quiz to start."""
+
+    DEFAULT_CSS = """
+    MenuScreen {
+        align: center middle;
+    }
+    MenuScreen #dashboard {
+        width: auto;
+        height: auto;
+    }
+    MenuScreen #logo {
+        width: 100%;
+        text-align: center;
+        color: $primary;
+        text-style: bold;
+    }
+    MenuScreen #subtitle {
+        width: 100%;
+        text-align: center;
+        color: $text-muted;
+        text-style: italic;
+        margin-bottom: 1;
+    }
+    MenuScreen OptionList {
+        width: auto;
+        border: none;
+        background: transparent;
+        padding: 0;
+        &:focus {
+            border: none;
+            background-tint: $foreground 0%;
+        }
+        & > .option-list--option-highlighted {
+            color: $text;
+            background: $primary 30%;
+            text-style: bold;
+        }
+    }
+    MenuScreen #stat {
+        width: 100%;
+        text-align: center;
+        color: $text-muted;
+        text-style: italic;
+        margin-top: 1;
+    }
+    """
 
     def compose(self) -> ComposeResult:
-        yield Header()
-        yield OptionList(*(label for label, _ in MENU_OPTIONS))
-        yield Footer()
+        with Vertical(id="dashboard"):
+            yield Static(BANNER, id="logo")
+            yield Static("the terminal country quiz", id="subtitle")
+            yield OptionList(
+                *(
+                    Option(f"🌍  {label}", id=f"quiz-{i}")
+                    for i, (label, _) in enumerate(MENU_OPTIONS)
+                ),
+                Option("✕  Quit", id="quit"),
+            )
+            yield Static(f"{len(load_countries())} countries loaded", id="stat")
 
     def on_option_list_option_selected(
         self, event: OptionList.OptionSelected
     ) -> None:
-        _, countries = MENU_OPTIONS[event.option_index]
+        if event.option_id == "quit":
+            self.app.exit()
+            return
+        index = int(event.option_id.removeprefix("quiz-"))
+        _, countries = MENU_OPTIONS[index]
         self.app.push_screen(QuizScreen(countries))
 
 
@@ -42,9 +109,13 @@ class QuizScreen(Screen[None]):
     }
     QuizScreen #status Static {
         width: auto;
+        color: $primary;
+        text-style: bold;
+        margin-right: 2;
     }
     QuizScreen RichLog {
         height: 1fr;
+        border: none;
     }
     """
 
@@ -103,6 +174,14 @@ class ResultsScreen(Screen[None]):
 
     BINDINGS = [Binding("escape,enter", "back_to_menu", "Back to menu")]
 
+    DEFAULT_CSS = """
+    ResultsScreen #final-score {
+        padding: 1;
+        color: $primary;
+        text-style: bold;
+    }
+    """
+
     def __init__(self, quiz: Quiz) -> None:
         super().__init__()
         self.quiz = quiz
@@ -129,4 +208,5 @@ class CqApp(App[None]):
     TITLE = "cq"
 
     def on_mount(self) -> None:
+        self.theme = "tokyo-night"
         self.push_screen(MenuScreen())
