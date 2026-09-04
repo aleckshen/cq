@@ -1,4 +1,4 @@
-from textual.widgets import Digits, Static
+from textual.widgets import Digits
 
 from cq.tui import (
     CqApp,
@@ -153,18 +153,41 @@ async def test_menu_can_start_a_region_quiz() -> None:
         assert len({c.region for c in quiz.countries}) == 1
 
 
-async def test_duplicate_guess_is_cleared_and_reported() -> None:
+async def test_re_typing_a_found_country_does_nothing() -> None:
     app = CqApp()
     async with app.run_test() as pilot:
         await pilot.press("enter")
         screen = app.screen
         assert isinstance(screen, QuizScreen)
+        entry = screen.query_one("Input")
 
         await pilot.press(*"france")
-        await pilot.press(*"france")
         assert screen.quiz.score == 1
-        assert screen.query_one("Input").value == ""
-        assert "already found" in screen.query_one("#message", Static).content
+        assert entry.value == ""
+
+        await pilot.press(*"france")  # already found — left alone, not swallowed
+        assert screen.quiz.score == 1
+        assert entry.value == "france"
+
+
+async def test_a_short_name_does_not_block_the_longer_one() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        screen = app.screen
+        assert isinstance(screen, QuizScreen)
+        entry = screen.query_one("Input")
+
+        await pilot.press(*"niger")  # claims Niger and clears, same as any match
+        assert entry.value == ""
+        after_niger = screen.quiz.score
+
+        # Typing "nigeria" now: "niger" repeats (a no-op that leaves the text
+        # alone), then "ia" completes the longer name.
+        await pilot.press(*"nigeria")
+        assert screen.quiz.score == after_niger + 1
+        assert entry.value == ""
+        assert screen.quiz.submit("Nigeria").outcome.name == "DUPLICATE"
 
 
 async def test_results_replay_starts_the_same_quiz_again() -> None:

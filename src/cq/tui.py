@@ -16,7 +16,7 @@ from textual.timer import Timer
 from textual.widgets import Digits, Footer, Input, Label, Static
 
 from cq.countries import Country, load_countries
-from cq.game import DEFAULT_DURATION, GuessOutcome, Quiz
+from cq.game import DEFAULT_DURATION, GuessOutcome, GuessResult, Quiz
 
 BANNER = r"""
  ██████╗ ██████╗
@@ -362,9 +362,6 @@ class QuizScreen(Screen[None]):
     QuizScreen Input.-hit {{
         border: round $success;
     }}
-    QuizScreen Input.-dupe {{
-        border: round $warning;
-    }}
     QuizScreen #message {{
         height: 1;
         padding: 0 3;
@@ -434,16 +431,25 @@ class QuizScreen(Screen[None]):
         progress.total = self.quiz.total
 
     def on_input_changed(self, event: Input.Changed) -> None:
-        result = self.quiz.submit(event.value)
-        if result.outcome is GuessOutcome.INCORRECT or result.country is None:
-            return
+        self._apply_guess(self.quiz.submit(event.value))
 
+    def on_input_submitted(self, event: Input.Submitted) -> None:
+        # Enter means "done with this one" — resolve it and clear the box.
+        self._apply_guess(self.quiz.submit(event.value))
         self.query_one(Input).value = ""
-        country = result.country
-        if result.outcome is GuessOutcome.DUPLICATE:
-            self.flash("-dupe", f"already found  {country.flag} {country.name}")
+
+    def _apply_guess(self, result: GuessResult) -> None:
+        """React to a guess. Only a fresh match touches the box: it's added
+        to the board and the field clears for the next country. Re-typing a
+        country already found does nothing — the text is left in place, so a
+        short name like "niger" doesn't swallow the "nigeria" you're working
+        toward (type it once to claim Niger, then keep going).
+        """
+        if result.outcome is not GuessOutcome.CORRECT or result.country is None:
             return
 
+        country = result.country
+        self.query_one(Input).value = ""
         self.record(country)
         self.flash("-hit", f"✓  {country.flag} {country.name}")
         self.update_status()
@@ -468,7 +474,7 @@ class QuizScreen(Screen[None]):
     def flash(self, style: str, message: str) -> None:
         """Tint the input border and echo the guess for a beat."""
         entry = self.query_one(Input)
-        entry.remove_class("-hit", "-dupe")
+        entry.remove_class("-hit")
         entry.add_class(style)
         self.query_one("#message", Static).update(message)
         if self._flash_timer is not None:
@@ -476,7 +482,7 @@ class QuizScreen(Screen[None]):
         self._flash_timer = self.set_timer(0.6, self.clear_flash)
 
     def clear_flash(self) -> None:
-        self.query_one(Input).remove_class("-hit", "-dupe")
+        self.query_one(Input).remove_class("-hit")
 
     def action_give_up(self) -> None:
         self.finish()
