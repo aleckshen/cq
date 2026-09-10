@@ -8,12 +8,13 @@ from textual.widgets import Static
 
 
 def track(done: int, total: int, width: int) -> Content:
-    """A solid two-tone progress track, `width` cells wide."""
+    """A progress track `width` cells wide: earned cells are solid white, the
+    rest a light shade."""
     width = max(width, 1)
     filled = 0 if total <= 0 else round(width * done / total)
     filled = max(0, min(width, filled))
-    return Content.styled("█" * filled, "$success") + Content.styled(
-        "█" * (width - filled), "$panel"
+    return Content.styled("█" * filled, "white") + Content.styled(
+        "░" * (width - filled), "$text-disabled"
     )
 
 
@@ -37,7 +38,7 @@ class ProgressTile(Static):
         return Content("\n").join(
             (
                 track(self.done, self.total, width),
-                Content.styled(f"{percent}%".center(width), "bold $success"),
+                Content.styled(f"{percent}%".center(width), "bold white"),
                 Content.styled(caption.center(width), "$text-muted"),
             )
         )

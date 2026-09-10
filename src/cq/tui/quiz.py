@@ -49,20 +49,20 @@ class QuizScreen(Screen[None]):
     QuizScreen #timer {{
         width: {TIMER_WIDTH};
         text-align: center;
-        color: $primary;
+        color: white;
     }}
     QuizScreen #timer.-warn {{
-        color: $warning;
+        color: white;
         border: round $warning 40%;
     }}
     QuizScreen #timer.-danger {{
-        color: $error;
+        color: white;
         border: round $error;
     }}
     QuizScreen #score {{
         width: {COUNT_WIDTH};
         text-align: center;
-        color: $success;
+        color: white;
     }}
     QuizScreen #progress {{
         width: 1fr;
@@ -119,7 +119,7 @@ class QuizScreen(Screen[None]):
         background: $surface;
         padding: 0 1;
         &:focus {{
-            border: round $primary;
+            border: round white;
         }}
     }}
     QuizScreen Input.-hit {{

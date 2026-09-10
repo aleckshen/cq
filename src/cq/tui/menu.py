@@ -116,7 +116,7 @@ class MenuScreen(Screen[None]):
         width: 100%;
         text-align: center;
         text-style: bold;
-        color: $primary;
+        color: white;
     }}
     MenuScreen #subtitle {{
         width: 100%;
@@ -132,8 +132,8 @@ class MenuScreen(Screen[None]):
         border-title-color: $text-muted;
         padding: 1 1;
         &:focus {{
-            border: round $primary;
-            border-title-color: $primary;
+            border: round white;
+            border-title-color: white;
         }}
     }}
     MenuScreen .menu-row {{

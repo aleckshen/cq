@@ -27,7 +27,7 @@ CQ_THEME = Theme(
     success="#9ece6a",
     warning="#e0af68",
     error="#f7768e",
-    foreground="#c0caf5",
+    foreground="#ffffff",
     # "ansi_default" + ansi=True is what actually gets Textual to leave these
     # cells unpainted rather than filling them with a literal color: without
     # ansi=True, Rich resolves "ansi_default" to an *approximate* solid RGB
@@ -53,5 +53,10 @@ CQ_THEME = Theme(
         "input-selection-foreground": "ansi_black",
         "screen-selection-background": "ansi_bright_blue",
         "screen-selection-foreground": "ansi_black",
+        # every piece of body text renders pure white, including the shades
+        # Textual would otherwise dim (captions, hints, border titles).
+        "text": "#ffffff",
+        "text-muted": "#ffffff",
+        "text-disabled": "#ffffff",
     },
 )

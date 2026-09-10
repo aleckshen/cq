@@ -16,7 +16,7 @@ class CqApp(App[None]):
         background: $surface;
     }
     Footer FooterKey .footer-key--key {
-        color: $primary;
+        color: white;
         background: $surface;
     }
     Footer FooterKey .footer-key--description {

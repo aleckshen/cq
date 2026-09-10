@@ -38,12 +38,12 @@ class ResultsScreen(Screen[None]):
     ResultsScreen #final-score {{
         width: {COUNT_WIDTH};
         text-align: center;
-        color: $success;
+        color: white;
     }}
     ResultsScreen #final-percent {{
         width: {COUNT_WIDTH};
         text-align: center;
-        color: $primary;
+        color: white;
     }}
     ResultsScreen #final-progress {{
         width: 1fr;
@@ -78,9 +78,9 @@ class ResultsScreen(Screen[None]):
         height: 100%;
         border: round $success;
         border-title-align: left;
-        border-title-color: $success;
+        border-title-color: white;
         content-align: center middle;
-        color: $success;
+        color: white;
         text-style: bold;
     }}
     ResultsScreen #breakdown {{
