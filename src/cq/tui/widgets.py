@@ -1,10 +1,14 @@
 """Small helpers and the widgets shared by the quiz and results screens."""
 
 import math
+from collections.abc import Iterable
 
 from textual.content import Content
 from textual.reactive import reactive
 from textual.widgets import Static
+
+from cq.countries import Country
+from cq.tui.theme import COLUMN_WIDTH
 
 
 def track(done: int, total: int, width: int) -> Content:
@@ -56,3 +60,48 @@ class RegionPanel(Static):
             lines.append(track(found, total, width))
             lines.append(Content(""))
         self.update(Content("\n").join(lines))
+
+
+class CountryColumns(Static):
+    """A flag+name list, sorted alphabetically and laid out in newspaper
+    columns: each column is filled top-to-bottom to the height of the visible
+    area before the next one starts. Only when the columns would overflow the
+    width does it fall back to balanced columns and scroll vertically."""
+
+    def __init__(self, *, id: str | None = None) -> None:
+        super().__init__(id=id)
+        self._countries: list[Country] = []
+
+    def set_countries(self, countries: Iterable[Country]) -> None:
+        self._countries = sorted(countries, key=lambda c: c.name)
+        self.refresh(layout=True)
+
+    def on_resize(self) -> None:
+        self.refresh(layout=True)
+
+    def render(self) -> Content:
+        count = len(self._countries)
+        # the visible area is the scroll viewport (our parent), not our own
+        # auto height, which only ever reports the content we last produced.
+        viewport = self.parent.content_size if self.parent else self.container_size
+        width, height = viewport.width, viewport.height
+        if not count or width < 1:
+            return Content("")
+
+        max_columns = max(1, (width + 1) // (COLUMN_WIDTH + 1))
+        rows = max(1, height)
+        if -(-count // rows) > max_columns:  # wider than the area — let it scroll
+            rows = -(-count // max_columns)
+        columns = -(-count // rows)
+
+        lines = [
+            Content(" ").join(
+                Content(
+                    f"{self._countries[i].flag} {self._countries[i].name}"
+                ).truncate(COLUMN_WIDTH, ellipsis=True, pad=True)
+                for column in range(columns)
+                if (i := column * rows + row) < count
+            )
+            for row in range(rows)
+        ]
+        return Content("\n").join(lines)

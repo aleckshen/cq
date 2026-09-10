@@ -2,13 +2,13 @@
 
 from textual.app import ComposeResult
 from textual.binding import Binding
-from textual.containers import Horizontal, ItemGrid, VerticalScroll
+from textual.containers import Horizontal, VerticalScroll
 from textual.screen import Screen
-from textual.widgets import Digits, Footer, Label, Static
+from textual.widgets import Digits, Footer, Static
 
 from cq.game import Quiz
-from cq.tui.theme import COLUMN_WIDTH, COUNT_WIDTH, NARROW_WIDTH, SIDEBAR_WIDTH
-from cq.tui.widgets import ProgressTile, RegionPanel
+from cq.tui.theme import COUNT_WIDTH, NARROW_WIDTH, SIDEBAR_WIDTH
+from cq.tui.widgets import CountryColumns, ProgressTile, RegionPanel
 
 
 class ResultsScreen(Screen[None]):
@@ -64,14 +64,6 @@ class ResultsScreen(Screen[None]):
     ResultsScreen #missed-grid {{
         width: 100%;
         height: auto;
-        grid-gutter: 0 1;
-    }}
-    ResultsScreen .missed-item {{
-        width: 100%;
-        height: 1;
-        color: $text-muted;
-        text-wrap: nowrap;
-        text-overflow: ellipsis;
     }}
     ResultsScreen #perfect {{
         width: 1fr;
@@ -112,17 +104,9 @@ class ResultsScreen(Screen[None]):
             yield ProgressTile(id="final-progress", classes="tile")
 
         with Horizontal(id="results-board"):
-            missed = self.quiz.missed()
-            if missed:
+            if self.quiz.missed():
                 with VerticalScroll(id="missed"):
-                    yield ItemGrid(
-                        *(
-                            Label(f"{c.flag} {c.name}", classes="missed-item")
-                            for c in missed
-                        ),
-                        id="missed-grid",
-                        min_column_width=COLUMN_WIDTH,
-                    )
+                    yield CountryColumns(id="missed-grid")
             else:
                 yield Static("perfect — every country named", id="perfect")
             yield RegionPanel(id="breakdown")
@@ -135,6 +119,7 @@ class ResultsScreen(Screen[None]):
         self.query_one("#breakdown").border_title = "by region"
         if missed := self.quiz.missed():
             self.query_one("#missed").border_title = f"missed ({len(missed)})"
+            self.query_one(CountryColumns).set_countries(missed)
         else:
             self.query_one("#perfect").border_title = "missed (0)"
 
@@ -146,6 +131,8 @@ class ResultsScreen(Screen[None]):
     def on_resize(self) -> None:
         self.set_class(self.size.width < NARROW_WIDTH, "-narrow")
         self.query_one(RegionPanel).show(self.quiz.region_progress())
+        for grid in self.query(CountryColumns):
+            grid.refresh(layout=True)
 
     def action_back_to_menu(self) -> None:
         self.app.pop_screen()

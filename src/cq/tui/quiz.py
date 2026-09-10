@@ -4,22 +4,15 @@ import time
 
 from textual.app import ComposeResult
 from textual.binding import Binding
-from textual.containers import Horizontal, ItemGrid, Vertical, VerticalScroll
-from textual.content import Content
+from textual.containers import Horizontal, Vertical, VerticalScroll
 from textual.screen import Screen
 from textual.timer import Timer
-from textual.widgets import Digits, Footer, Input, Label, Static
+from textual.widgets import Digits, Footer, Input, Static
 
 from cq.countries import Country
 from cq.game import DEFAULT_DURATION, GuessOutcome, GuessResult, Quiz
-from cq.tui.theme import (
-    COLUMN_WIDTH,
-    COUNT_WIDTH,
-    NARROW_WIDTH,
-    SIDEBAR_WIDTH,
-    TIMER_WIDTH,
-)
-from cq.tui.widgets import ProgressTile, RegionPanel, clock
+from cq.tui.theme import COUNT_WIDTH, NARROW_WIDTH, SIDEBAR_WIDTH, TIMER_WIDTH
+from cq.tui.widgets import CountryColumns, ProgressTile, RegionPanel, clock
 
 
 class QuizScreen(Screen[None]):
@@ -84,13 +77,6 @@ class QuizScreen(Screen[None]):
     QuizScreen #found-grid {{
         width: 100%;
         height: auto;
-        grid-gutter: 0 1;
-    }}
-    QuizScreen .found-item {{
-        width: 100%;
-        height: 1;
-        text-wrap: nowrap;
-        text-overflow: ellipsis;
     }}
     QuizScreen #empty-hint {{
         width: 100%;
@@ -154,7 +140,7 @@ class QuizScreen(Screen[None]):
         with Horizontal(id="board"):
             with VerticalScroll(id="found"):
                 yield Static("nothing found yet — start typing", id="empty-hint")
-                yield ItemGrid(id="found-grid", min_column_width=COLUMN_WIDTH)
+                yield CountryColumns(id="found-grid")
             yield RegionPanel(id="regions")
         with Vertical(id="entry"):
             yield Input(placeholder="type a country…")
@@ -175,6 +161,7 @@ class QuizScreen(Screen[None]):
     def on_resize(self) -> None:
         self.set_class(self.size.width < NARROW_WIDTH, "-narrow")
         self.query_one(RegionPanel).show(self.quiz.region_progress())
+        self.query_one(CountryColumns).refresh(layout=True)
 
     def on_tick(self) -> None:
         self.update_status()
@@ -213,25 +200,21 @@ class QuizScreen(Screen[None]):
 
         country = result.country
         self.query_one(Input).value = ""
-        self.record(country)
+        self.record()
         self.flash("-hit", f"✓  {country.flag} {country.name}")
         self.update_status()
         if self.quiz.is_complete(time.monotonic()):
             self.finish()
 
-    def record(self, country: Country) -> None:
-        """Add a freshly found country to the grid and the region sidebar."""
-        grid = self.query_one("#found-grid", ItemGrid)
+    def record(self) -> None:
+        """Refresh the found-country list and the region sidebar."""
+        grid = self.query_one("#found-grid", CountryColumns)
         if not grid.display:
             self.query_one("#empty-hint").remove()
             grid.display = True
-        grid.mount(
-            Label(
-                Content.styled(f"{country.flag} {country.name}", "$text"),
-                classes="found-item",
-            )
+        grid.set_countries(
+            c for c in self.quiz.countries if c.id in self.quiz.answered
         )
-        self.query_one("#found", VerticalScroll).scroll_end(animate=False)
         self.query_one(RegionPanel).show(self.quiz.region_progress())
 
     def flash(self, style: str, message: str) -> None:
