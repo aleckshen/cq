@@ -8,6 +8,7 @@ from cq.tui import (
     QuizScreen,
     ResultsScreen,
 )
+from cq.tui.quiz import PauseScreen
 
 
 async def test_menu_shows_and_selecting_opens_quiz() -> None:
@@ -97,7 +98,7 @@ async def test_finish_is_idempotent() -> None:
         assert len(app.screen_stack) == depth
 
 
-async def test_escape_abandons_the_quiz() -> None:
+async def test_escape_pauses_then_resume_or_give_up() -> None:
     app = CqApp()
     async with app.run_test() as pilot:
         await pilot.press("enter")
@@ -105,7 +106,32 @@ async def test_escape_abandons_the_quiz() -> None:
 
         await pilot.press("escape")
         await pilot.pause()
+        assert isinstance(app.screen, PauseScreen)
+
+        await pilot.press("r")  # resume — back to the same quiz
+        await pilot.pause()
+        assert isinstance(app.screen, QuizScreen)
+
+        await pilot.press("escape")
+        await pilot.press("g")  # give up — on to the results
+        await pilot.pause()
         assert isinstance(app.screen, ResultsScreen)
+
+
+async def test_pause_holds_the_clock() -> None:
+    app = CqApp()
+    async with app.run_test() as pilot:
+        await pilot.press("enter")
+        quiz = app.screen
+        assert isinstance(quiz, QuizScreen)
+        started_at = quiz.quiz.started_at
+
+        await pilot.press("escape")
+        await pilot.pause(0.1)
+        await pilot.press("r")
+        await pilot.pause()
+        # resuming pushes started_at forward by the paused interval.
+        assert quiz.quiz.started_at > started_at
 
 
 async def test_ctrl_r_restarts_the_quiz() -> None:
@@ -200,6 +226,7 @@ async def test_results_replay_starts_the_same_quiz_again() -> None:
         countries = quiz.countries
 
         await pilot.press("escape")
+        await pilot.press("g")  # give up through the pause prompt
         await pilot.pause()
         assert isinstance(app.screen, ResultsScreen)
 

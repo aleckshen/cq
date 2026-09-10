@@ -5,7 +5,7 @@ import time
 from textual.app import ComposeResult
 from textual.binding import Binding
 from textual.containers import Horizontal, Vertical, VerticalScroll
-from textual.screen import Screen
+from textual.screen import ModalScreen, Screen
 from textual.timer import Timer
 from textual.widgets import Digits, Footer, Input, Static
 
@@ -15,11 +15,58 @@ from cq.tui.theme import COUNT_WIDTH, NARROW_WIDTH, SIDEBAR_WIDTH, TIMER_WIDTH
 from cq.tui.widgets import CountryColumns, ProgressTile, RegionPanel, clock
 
 
+class PauseScreen(ModalScreen[bool]):
+    """Shown when a running quiz is interrupted: the clock is held while the
+    player chooses to resume or give up. Dismisses True to give up."""
+
+    BINDINGS = [
+        Binding("escape,enter,r", "resume", "Resume"),
+        Binding("g", "give_up", "Give up"),
+    ]
+
+    DEFAULT_CSS = """
+    PauseScreen {
+        align: center middle;
+    }
+    PauseScreen #box {
+        width: 40;
+        height: auto;
+        padding: 1 2;
+        border: round white;
+        background: $surface;
+    }
+    PauseScreen Static {
+        width: 100%;
+        text-align: center;
+    }
+    PauseScreen #title {
+        text-style: bold;
+    }
+    PauseScreen #hint {
+        color: $text-muted;
+        margin-top: 1;
+    }
+    """
+
+    def compose(self) -> ComposeResult:
+        with Vertical(id="box"):
+            yield Static("paused", id="title")
+            yield Static("the clock is on hold")
+            yield Static("r  resume        g  give up", id="hint")
+        yield Footer()
+
+    def action_resume(self) -> None:
+        self.dismiss(False)
+
+    def action_give_up(self) -> None:
+        self.dismiss(True)
+
+
 class QuizScreen(Screen[None]):
     """A single timed quiz: type guesses, no need to press enter."""
 
     BINDINGS = [
-        Binding("escape", "give_up", "Menu"),
+        Binding("escape", "pause", "Pause"),
         Binding("ctrl+r", "restart", "Restart"),
     ]
 
@@ -131,6 +178,8 @@ class QuizScreen(Screen[None]):
         self.quiz = Quiz.start(countries, now=time.monotonic(), duration=duration)
         self._finished = False
         self._flash_timer: Timer | None = None
+        self._tick: Timer | None = None
+        self._paused_at: float | None = None
 
     def compose(self) -> ComposeResult:
         with Horizontal(id="hud"):
@@ -155,7 +204,7 @@ class QuizScreen(Screen[None]):
         self.query_one("#regions").border_title = "regions"
         self.query_one("#found-grid").display = False
         self.update_status()
-        self.set_interval(0.25, self.on_tick)
+        self._tick = self.set_interval(0.25, self.on_tick)
         self.query_one(Input).focus()
 
     def on_resize(self) -> None:
@@ -230,8 +279,26 @@ class QuizScreen(Screen[None]):
     def clear_flash(self) -> None:
         self.query_one(Input).remove_class("-hit")
 
-    def action_give_up(self) -> None:
-        self.finish()
+    def action_pause(self) -> None:
+        """Hold the clock and ask whether to give up or carry on."""
+        if self._finished:
+            return
+        self._paused_at = time.monotonic()
+        if self._tick is not None:
+            self._tick.pause()
+        self.app.push_screen(PauseScreen(), self._after_pause)
+
+    def _after_pause(self, give_up: bool | None) -> None:
+        if give_up:
+            self.finish()
+            return
+        if self._paused_at is not None:
+            self.quiz.started_at += time.monotonic() - self._paused_at
+            self._paused_at = None
+        if self._tick is not None:
+            self._tick.resume()
+        self.update_status()
+        self.query_one(Input).focus()
 
     def action_restart(self) -> None:
         self._finished = True  # stop this screen's timer from re-entering finish()
