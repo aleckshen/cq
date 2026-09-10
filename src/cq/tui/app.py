@@ -15,13 +15,16 @@ class CqApp(App[None]):
     Footer {
         background: $surface;
     }
-    Footer > .footer-key--key {
-        color: $accent;
+    Footer FooterKey .footer-key--key {
+        color: $primary;
         background: $surface;
     }
-    Footer > .footer-key--description {
+    Footer FooterKey .footer-key--description {
         color: $text-muted;
         background: $surface;
+    }
+    Footer FooterKey.-command-palette {
+        border-left: none;
     }
     """
 
