@@ -152,7 +152,7 @@ class MenuList(Vertical):
         count = f"{len(entry.countries)}" if entry.countries else ""
         label = f"{entry.label:<{MENU_ROW_WIDTH - 8}}{count:>6}"
         if selected:
-            pointer = Content.styled("❯ ", "$accent")
+            pointer = Content.styled("❯ ", "white")
             return pointer + Content.styled(label, "bold $text")
         return Content.styled("  ") + Content.styled(label, "$text-muted")
 
