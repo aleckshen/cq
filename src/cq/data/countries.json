@@ -1271,6 +1271,23 @@
     "flag": "🇰🇮"
   },
   {
+    "id": "XKX",
+    "name": "Kosovo",
+    "official": "Republic of Kosovo",
+    "aliases": [
+      "Kosova",
+      "Kosovë",
+      "Republika e Kosovës",
+      "Косово",
+      "Republika Kosovo"
+    ],
+    "capitals": [
+      "Pristina"
+    ],
+    "region": "Europe",
+    "flag": "🇽🇰"
+  },
+  {
     "id": "KWT",
     "name": "Kuwait",
     "official": "State of Kuwait",
@@ -2426,6 +2443,24 @@
     ],
     "region": "Africa",
     "flag": "🇸🇹"
+  },
+  {
+    "id": "TWN",
+    "name": "Taiwan",
+    "official": "Republic of China",
+    "aliases": [
+      "Chinese Taipei",
+      "Formosa",
+      "Táiwān",
+      "中華民國",
+      "Zhōnghuá Mínguó",
+      "Republic of China (Taiwan)"
+    ],
+    "capitals": [
+      "Taipei"
+    ],
+    "region": "Asia",
+    "flag": "🇹🇼"
   },
   {
     "id": "TJK",

@@ -2,7 +2,7 @@ from cq.countries import Country, load_countries
 
 
 def test_loads_every_country() -> None:
-    assert len(load_countries()) == 195
+    assert len(load_countries()) == 197
 
 
 def test_ids_are_unique() -> None:
@@ -25,7 +25,7 @@ def test_country_fields_are_parsed() -> None:
 
 def test_countries_are_hashable() -> None:
     # game.py tracks answered countries in a set, so this has to hold.
-    assert len(set(load_countries())) == 195
+    assert len(set(load_countries())) == 197
 
 
 def test_load_is_cached() -> None:

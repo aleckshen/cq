@@ -68,7 +68,7 @@ async def test_finishing_the_quiz_shows_results() -> None:
         screen = app.screen
         assert isinstance(screen, QuizScreen)
 
-        # Force completion without typing all 195 countries.
+        # Force completion without typing all 197 countries.
         for country in screen.quiz.countries:
             screen.quiz.answered.add(country.id)
         screen.finish()
